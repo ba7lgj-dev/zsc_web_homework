@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SegmentFault 思否</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 绿色横线 -->
+    <div class="green-line"></div>
+
+    <!-- 主导航栏 -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- 左侧：Logo和导航菜单 -->
+            <div class="left-section">
+                <!-- Logo -->
+                <a class="logo" href="#">
+                    <img src="images/logo-b.1ef53c6e.svg" alt="SegmentFault">
+                </a>
+
+                <!-- 导航菜单 -->
+                <div class="nav-menu">
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" id="product-dropdown-toggle">
+                            产品
+                            <span class="dropdown-arrow"></span>
+                        </a>
+                        <div class="dropdown-menu" id="product-dropdown">
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">SegmentFault</div>
+                                <div class="dropdown-item-sub">专业开发者技术问答社区</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否企业问答</div>
+                                <div class="dropdown-item-sub">面向企业的商业问答软件</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否企业服务</div>
+                                <div class="dropdown-item-sub">营销与广告投放、开发者活动</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否公开课</div>
+                                <div class="dropdown-item-sub">编程课程、技术公开课</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">ONES</div>
+                                <div class="dropdown-item-sub">企业级研发管理平台</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">Tower</div>
+                                <div class="dropdown-item-sub">团队协作工具</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">为知笔记</div>
+                                <div class="dropdown-item-sub">个人及团队的知识库</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" id="community-dropdown-toggle">
+                            社群
+                            <span class="dropdown-arrow"></span>
+                        </a>
+                        <div class="dropdown-menu" id="community-dropdown">
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">Discord</div>
+                                <div class="dropdown-item-sub">开发者在线聊天室</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">微信群</div>
+                                <div class="dropdown-item-sub">公众号"联系我们"拉进群</div>
+                                <div class="qr-code">
+                                    <img src="images/qr-code-common.fff548d0.png" alt="微信群二维码">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间：搜索框 -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索关键字" aria-label="搜索" id="search-input">
+                    <div class="search-icon"></div>
+                    <!-- 搜索下拉菜单 -->
+                    <div class="search-dropdown" id="search-dropdown">
+                        <div class="search-option" data-search-type="bing" data-url="https://www.bing.com/search?q=site:segmentfault.com+">
+                            <span class="search-option-text">使用"Bing"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="google" data-url="https://www.google.com/search?q=site:segmentfault.com+">
+                            <span class="search-option-text">使用"Google"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="baidu" data-url="https://www.baidu.com/s?wd=site:segmentfault.com+">
+                            <span class="search-option-text">使用"百度"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="internal" data-url="#internal-search">
+                            <span class="search-option-text">站内搜索</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：注册登录按钮 -->
+            <div class="auth-buttons">
+                <a href="#" class="btn-login">注册登录</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-wrapper">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <!-- 主要导航项 -->
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-fw fa-circle-question me-2"></i>
+                    问答
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-blog fa-fw me-2"></i>
+                    博客
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-newspaper fa-fw me-2"></i>
+                    咨询
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-tags fa-fw me-2"></i>
+                    标签
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-users fa-fw me-2"></i>
+                    用户
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-calendar-days fa-fw me-2"></i>
+                    活动
+                </a>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 社区板块 -->
+            <div class="sidebar-section">
+                <div class="sidebar-subtitle">
+                    <img src="images/1591470715-67498d9667680_tiny24.webp" alt="极客观点" style="width: 16px; height: 16px; margin-right: 8px;">
+                    极客观点
+                </div>
+                <div class="sidebar-subtitle">
+                    <img src="images/2978758509-67498f579c239_tiny24.webp" alt="项目管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    项目管理
+                </div>
+                <div class="sidebar-subtitle">
+                    <img src="images/icon-brand-harmonyos.f1e421bb.png" alt="HarmonyOS开发者社区" style="width: 16px; height: 16px; margin-right: 8px;">
+                    HarmonyOS开发者社区
+                </div>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 热门标签 -->
+            <div class="sidebar-section">
+                <div class="sidebar-title" id="hot-tags-toggle" style="cursor: pointer;" onclick="toggleHotTags()">
+                    热门标签
+                    <i class="fas fa-caret-down float-end" style="color: #00a859;" id="tags-arrow"></i>
+                </div>
+                <div class="hot-tags-content" id="hot-tags-content" style="display: none;">
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        javascript
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        前端
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        python
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        node.js
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        react
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        vue.js
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        php
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        laravel
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        go
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        人工智能
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        mysql
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        linux
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        ios
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        java
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        android
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        CSS
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        typescript
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        spring
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        程序员
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 产品服务 -->
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item">
+                    <img src="images/logo-ones.2e4d7b04.svg" alt="ONES研发管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    ONES研发管理
+                </a>
+                <a href="#" class="sidebar-item">
+                    <img src="images/logo-answer.b0220a1c.svg" alt="思否企业问答" style="width: 16px; height: 16px; margin-right: 8px;">
+                    思否企业问答
+                </a>
+            </div>
+        </aside>
+
+        <!-- 主内容 -->
+        <main class="main-content">
+            <div class="content">
+            </div>
+        </main>
+    </div>
+
+    <!-- 注册登录模态框 -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h3 class="modal-title">注册登录</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <!-- 默认登录表单 -->
+                <div class="login-form-default" id="login-form-default">
+                    <div class="text-center">
+                        <h4 class="login-title">注册登录</h4>
+                    </div>
+                    
+                    <!-- 手机号输入 -->
+                    <div class="form-group">
+                        <label for="phone">手机号：</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="请输入手机号">
+                    </div>
+                    
+                    <!-- 验证码输入 -->
+                    <div class="form-group">
+                        <label for="verification-code">验证码：</label>
+                        <div class="verification-group">
+                            <input type="text" id="verification-code" class="form-input verification-input" placeholder="请输入验证码">
+                            <button class="get-code-btn" id="get-code-btn">获取验证码</button>
+                        </div>
+                        <div class="form-hint">
+                            <a href="#" class="hint-link">新手机号将自动注册</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 登录按钮 -->
+                    <button class="login-btn" id="login-btn">登录</button>
+                    
+                    <!-- 登录方式切换 -->
+                    <div class="login-methods">
+                        <button type="button" data-mode="weixin" class="login-mode">微信登录</button>
+                        <button type="button" data-mode="no-password" class="login-mode active">免密码登录</button>
+                        <button type="button" data-mode="password" class="login-mode">密码登录</button>
+                    </div>
+                    
+                    <!-- 第三方登录图标 -->
+                    <div class="social-login">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google" title="Google登录">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon github" title="GitHub登录">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon weibo" title="新浪微博登录">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                            <a href="#" class="social-icon more" title="更多登录方式">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 服务协议 -->
+                    <div class="agreement">
+                        <span>继续即代表同意</span>
+                        <a href="#" class="agreement-link">《服务协议》</a>
+                        <span>和</span>
+                        <a href="#" class="agreement-link">《隐私政策》</a>
+                    </div>
+                </div>
+
+                <!-- 微信二维码登录表单 -->
+                <div class="login-form-weixin" id="login-form-weixin" style="display: none;">
+                    <div class="text-center">
+                        <h4 class="login-title">注册登录</h4>
+                    </div>
+                    
+                    <div class="weixin-login-container">
+                        <div class="qr-code-container">
+                            <div class="qr-code">
+                                <img src="images/011IvyIA3q2Q000m.jpg" alt="微信扫码登录" width="160" height="160">
+                            </div>
+                        </div>
+                        
+                        <div class="weixin-text">
+                            <i class="fab fa-weixin" style="color: rgb(0, 181, 0);"></i>
+                            微信扫码登录
+                        </div>
+                    </div>
+                    
+                    <!-- 登录方式切换 -->
+                    <div class="login-methods">
+                        <button type="button" data-mode="weixin" class="login-mode active">微信登录</button>
+                        <button type="button" data-mode="no-password" class="login-mode">免密码登录</button>
+                        <button type="button" data-mode="password" class="login-mode">密码登录</button>
+                    </div>
+                    
+                    <!-- 第三方登录图标 -->
+                    <div class="social-login">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google" title="Google登录">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon github" title="GitHub登录">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon weibo" title="新浪微博登录">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                            <a href="#" class="social-icon more" title="更多登录方式">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 服务协议 -->
+                    <div class="agreement">
+                        <span>继续即代表同意</span>
+                        <a href="#" class="agreement-link">《服务协议》</a>
+                        <span>和</span>
+                        <a href="#" class="agreement-link">《隐私政策》</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

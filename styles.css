@@ -1,0 +1,1145 @@
+/* 基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* 绿色横线 */
+.green-line {
+    height: 3px;
+    background: linear-gradient(90deg, #00a86b, #00d084);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+}
+
+/* 主导航栏 */
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 3px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 60px;
+}
+
+/* 左侧部分 */
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
+/* 导航菜单 */
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00a86b;
+}
+
+.dropdown-arrow {
+    margin-left: 6px;
+    border: solid #666;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover .dropdown-arrow {
+    transform: rotate(-135deg);
+}
+
+/* 下拉菜单 */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 280px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 12px 0;
+    margin-top: 8px;
+}
+
+/* 产品下拉菜单特定宽度 */
+#product-dropdown {
+    width: 216px;
+    min-width: 216px;
+}
+
+/* 社群下拉菜单特定宽度 */
+#community-dropdown {
+    width: 184.56px;
+    min-width: 184.56px;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 分组下拉菜单项 */
+.dropdown-item-group {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.dropdown-item-group:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item-group:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-item-main {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.dropdown-item-sub {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* 二维码样式 */
+.qr-code {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.qr-code img {
+    width: 120px;
+    height: 120px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+/* 搜索框 */
+.search-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 40px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    width: 100%;
+    height: 36px;
+    padding: 0 40px 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border: 2px solid #00C56D;
+    box-shadow: 0 0 0 4px rgba(191, 229, 215, 0.8);
+}
+
+/* 搜索下拉菜单 */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1002;
+    margin-top: 8px;
+    padding: 8px 0;
+}
+
+.search-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 搜索选项 */
+.search-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.search-option:hover {
+    background-color: #f8f9fa;
+}
+
+.search-option-text {
+    font-size: 14px;
+    color: #333;
+    flex: 1;
+}
+
+.search-option-check {
+    color: #00C56D;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.search-option.selected .search-option-check {
+    opacity: 1;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>') center/contain no-repeat;
+    cursor: pointer;
+}
+
+/* 注册登录按钮 */
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-login {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: #00a86b;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #00965f;
+    transform: translateY(-1px);
+}
+
+/* 页面内容 */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* 注册登录模态框 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 420px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+/* 模态框头部 */
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+/* 模态框主体 */
+.modal-body {
+    padding: 24px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 24px 0;
+}
+
+/* 表单样式 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #00C56D;
+    box-shadow: 0 0 0 3px rgba(191, 229, 215, 0.3);
+}
+
+/* 验证码输入组 */
+.verification-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    position: relative;
+}
+
+.verification-group:focus-within {
+    border-color: #00C56D;
+    box-shadow: 0 0 0 4px rgba(191, 229, 215, 0.8);
+}
+
+.verification-input {
+    flex: 1;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    height: 44px;
+    padding: 0 16px;
+    font-size: 14px;
+    background: transparent;
+}
+
+.verification-input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.get-code-btn {
+    background: none !important;
+    border: none;
+    color: #9FA4AA;
+    padding: 0 20px;
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-left: 1px solid #ddd;
+    height: 44px;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    min-width: 100px;
+}
+
+.get-code-btn:hover:not(:disabled) {
+    color: #00965E;
+}
+
+.get-code-btn:active:not(:disabled) {
+    color: #00965E;
+}
+
+.get-code-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.get-code-btn.counting {
+    color: #666;
+}
+
+.form-hint {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.hint-link {
+    color: #878F95;
+    text-decoration: none;
+}
+
+.hint-link:hover {
+    text-decoration: underline;
+}
+
+/* 登录按钮 */
+.login-btn {
+    width: 100%;
+    height: 44px;
+    background-color: #00965E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #007d4e;
+}
+
+/* 登录方式切换 */
+.login-methods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+    padding: 0 12px;
+}
+
+.login-mode {
+    background: none;
+    border: none;
+    color: rgb(0, 145, 91);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 400;
+    line-height: 1.5;
+    position: relative;
+}
+
+.login-mode:hover {
+    color: #00965E;
+    text-decoration: underline;
+}
+
+.login-mode.active {
+    color: rgb(51, 51, 51);
+    font-weight: 500;
+}
+
+.login-mode:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* 第三方登录 */
+.social-login {
+    margin-bottom: 24px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: #e9ecef;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+.social-icon.google:hover {
+    background-color: #ea4335;
+    color: white;
+}
+
+.social-icon.github:hover {
+    background-color: #333;
+    color: white;
+}
+
+.social-icon.weibo:hover {
+    background-color: #ff6b35;
+    color: white;
+}
+
+.social-icon.more:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* 服务协议 */
+.agreement {
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+    line-height: 1.6;
+}
+
+.agreement-link {
+    color: #00C56D;
+    text-decoration: none;
+}
+
+.agreement-link:hover {
+    text-decoration: underline;
+}
+
+/* 微信二维码登录样式 */
+.weixin-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.qr-code-container {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.qr-code {
+    width: 160px;
+    height: 160px;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.qr-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.qr-loading {
+    width: 160px;
+    height: 160px;
+    background: #e9ecf0;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.loading-placeholder {
+    text-align: center;
+}
+
+.weixin-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #333;
+    margin-top: 8px;
+}
+
+.weixin-text i {
+    font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 16px;
+    }
+    
+    .left-section {
+        gap: 20px;
+    }
+    
+    .nav-menu {
+        gap: 20px;
+    }
+    
+    .search-container {
+        margin: 0 20px;
+    }
+    
+    .dropdown-menu {
+        min-width: 240px;
+    }
+    
+    #product-dropdown {
+        width: 216px;
+        min-width: 216px;
+    }
+    
+    #community-dropdown {
+        width: 184.56px;
+        min-width: 184.56px;
+    }
+    
+    .qr-code img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .login-methods {
+        flex-direction: column;
+    }
+    
+    .method-btn {
+        margin-bottom: 8px;
+    }
+}
+
+/* 主内容布局 */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    background-color: #E9ECEF;
+    margin-top: 63px;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    border-right: 1px solid #e8e8e8;
+    padding: 20px 0;
+    position: sticky;
+    top: 63px;
+    height: calc(100vh - 63px);
+    overflow-y: auto;
+}
+
+.sidebar-section {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.sidebar-item:hover {
+    background-color: #f8f9fa;
+    color: #00a859;
+}
+
+.sidebar-item.active {
+    background-color: #e8f5ee;
+    color: #00a859;
+    font-weight: 500;
+}
+
+.sidebar-item i {
+    width: 16px;
+    text-align: center;
+}
+
+/* 热门标签图标特殊处理 */
+.hot-tags-content .sidebar-item i {
+    color: #6c757d !important;
+}
+
+.sidebar-divider {
+    margin: 16px 0;
+    border: none;
+    border-top: 1px solid #e8e8e8;
+}
+
+.sidebar-subtitle {
+    padding: 8px 12px;
+    color: #666;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.sidebar-subtitle:hover {
+    color: #00a859;
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.sidebar-title:hover {
+    color: #00a859;
+}
+
+/* 主内容区域 */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    max-width: calc(100% - 250px);
+    margin: 0 auto;
+}
+
+.main-content .content {
+    max-width: 950px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* 响应式设计 - 侧边栏 */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+    }
+}
+
+/* 修复模态框背景透明问题 */
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+.modal-overlay.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.modal-content {
+    background-color: white !important;
+    border-radius: 12px !important;
+    width: 90% !important;
+    max-width: 480px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    transform: scale(0.9) !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    padding: 0 !important;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1) !important;
+}
+
+/* 模态框头部 - 更宽松 */
+.modal-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 28px 32px 20px 32px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.modal-title {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin: 0 !important;
+}
+
+.modal-close {
+    background: none !important;
+    border: none !important;
+    font-size: 26px !important;
+    color: #999 !important;
+    cursor: pointer !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    transition: all 0.2s ease !important;
+}
+
+.modal-close:hover {
+    background-color: #f5f5f5 !important;
+    color: #666 !important;
+}
+
+/* 模态框主体 - 更宽松 */
+.modal-body {
+    padding: 20px 32px 32px 32px !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.login-title {
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: #333 !important;
+    margin: 0 0 28px 0 !important;
+}
+
+/* 表单样式 - 更宽松 */
+.form-group {
+    margin-bottom: 24px !important;
+}
+
+.form-group label {
+    display: block !important;
+    font-size: 15px !important;
+    color: #666 !important;
+    margin-bottom: 10px !important;
+    font-weight: 500 !important;
+}
+
+.form-input {
+    width: 100% !important;
+    height: 48px !important;
+    padding: 0 18px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+}
+
+.form-input:focus {
+    outline: none !important;
+    border-color: #00C56D !important;
+    box-shadow: 0 0 0 3px rgba(191, 229, 215, 0.3) !important;
+}
+
+/* 验证码输入组 - 更宽松 */
+.verification-group {
+    display: flex !important;
+    align-items: center !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    background-color: #fff !important;
+    position: relative !important;
+}
+
+.verification-group:focus-within {
+    border-color: #00C56D !important;
+    box-shadow: 0 0 0 4px rgba(191, 229, 215, 0.8) !important;
+}
+
+.verification-input {
+    flex: 1 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    height: 48px !important;
+    padding: 0 18px !important;
+    font-size: 15px !important;
+    background: transparent !important;
+}
+
+.verification-input:focus {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.get-code-btn {
+    background: none !important;
+    border: none !important;
+    color: #9FA4AA !important;
+    padding: 0 24px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    border-left: 1px solid #ddd !important;
+    height: 48px !important;
+    transition: color 0.3s ease !important;
+    font-weight: 500 !important;
+    position: relative !important;
+    min-width: 110px !important;
+}
+
+.get-code-btn:hover:not(:disabled) {
+    color: #00965E !important;
+}
+
+.get-code-btn:active:not(:disabled) {
+    color: #00965E !important;
+}
+
+.get-code-btn:disabled {
+    color: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+.get-code-btn.counting {
+    color: #666 !important;
+}
+
+.form-hint {
+    margin-top: 10px !important;
+    font-size: 13px !important;
+}
+
+.hint-link {
+    color: #878F95 !important;
+    text-decoration: none !important;
+}
+
+/* 热门标签样式 */
+.hot-tags-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0;
+    border-top: 1px solid #e9ecef;
+}
+
+.hot-tags-content.show {
+    max-height: 500px;
+    transition: max-height 0.3s ease-in;
+    padding: 10px 0;
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+    color: #212529;
+}
+
+.tag-item i {
+    font-size: 10px;
+    color: #6c757d;
+}
+
+/* 热门标签图标样式 */
+.hot-tags-content .sidebar-item i {
+    color: #6c757d !important;
+    margin-right: 13px !important; /* Bootstrap的me-2是0.5rem=8px，增加5px变成13px */
+}
+
+/* 主要导航项图标颜色 */
+.sidebar-section .sidebar-item:nth-child(1) i { /* 问答 */
+    color: inherit;
+}
+.sidebar-section .sidebar-item:nth-child(2) i { /* 博客 */
+    color: inherit;
+}
+.sidebar-section .sidebar-item:nth-child(3) i { /* 咨询 */
+    color: inherit;
+}
+.sidebar-section .sidebar-item:nth-child(4) i { /* 标签 */
+    color: inherit;
+}
+.sidebar-section .sidebar-item:nth-child(5) i { /* 用户 */
+    color: inherit;
+}
+.sidebar-section .sidebar-item:nth-child(6) i { /* 活动 */
+    color: inherit;
+}
