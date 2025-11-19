@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问答列表 - SegmentFault 风格</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        body {
+            background:#f5f6f7;
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+        .questions-page {
+            max-width:1100px;
+            margin:0 auto;
+            padding:32px 16px 60px;
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+        .questions-header {
+            background:#fff;
+            border-radius:10px;
+            padding:18px 20px;
+            display:flex;
+            flex-wrap:wrap;
+            align-items:center;
+            justify-content:space-between;
+            box-shadow:0 6px 18px rgba(0,0,0,.03);
+        }
+        .questions-header h2 {
+            font-size:22px;
+            margin:0;
+        }
+        .tab-list {
+            display:flex;
+            flex-wrap:wrap;
+            gap:10px;
+            margin:10px 0;
+        }
+        .tab-list a {
+            padding:6px 16px;
+            border-radius:999px;
+            text-decoration:none;
+            color:#5c6166;
+            background:#f1f3f5;
+            font-size:14px;
+        }
+        .tab-list a.active {
+            background:#0f9d58;
+            color:#fff;
+        }
+        .ask-btn {
+            padding:9px 18px;
+            border:none;
+            border-radius:8px;
+            background:#0f9d58;
+            color:#fff;
+            cursor:pointer;
+            font-size:14px;
+        }
+        .question-card {
+            background:#fff;
+            border-radius:12px;
+            padding:20px;
+            display:flex;
+            gap:18px;
+            box-shadow:0 8px 24px rgba(15,25,38,.06);
+        }
+        .stats {
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+            min-width:150px;
+        }
+        .stat-box {
+            display:flex;
+            flex:1;
+            align-items:center;
+            justify-content:space-between;
+            border:1px solid #e0e3e8;
+            border-radius:10px;
+            padding:10px 12px;
+        }
+        .stat-number {
+            font-size:18px;
+            font-weight:600;
+        }
+        .stat-label {
+            color:#858b93;
+            font-size:12px;
+        }
+        .question-main {
+            flex:1;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+        .question-title {
+            font-size:18px;
+            color:#222;
+            text-decoration:none;
+        }
+        .question-title:hover {
+            color:#0f9d58;
+        }
+        .question-desc {
+            margin:0;
+            color:#6a6f75;
+            font-size:14px;
+            line-height:1.6;
+        }
+        .question-meta {
+            display:flex;
+            flex-wrap:wrap;
+            gap:12px;
+            font-size:13px;
+            color:#7b7f85;
+        }
+        .tag-list {
+            display:flex;
+            flex-wrap:wrap;
+            gap:8px;
+        }
+        .tag {
+            background:#eef2ff;
+            color:#2e5aac;
+            padding:4px 10px;
+            border-radius:6px;
+            text-decoration:none;
+            font-size:12px;
+        }
+        .meta-user {
+            margin-left:auto;
+            color:#8c929a;
+        }
+        @media (max-width:768px){
+            .question-card{flex-direction:column;}
+            .stats{flex-direction:row;min-width:unset;}
+            .stat-box{flex-direction:column;gap:6px;flex:1;}
+            .meta-user{width:100%;margin-left:0;}
+        }
+    </style>
+</head>
+<body>
+    <div data-component="app-shell-host"
+         data-src="header-navigation.html"
+         data-behavior-src="../assets/js/script.js"></div>
+
+    <template data-page-fragment>
+        <section class="questions-page">
+            <div class="questions-header">
+                <div>
+                    <h2>问答</h2>
+                    <div class="tab-list">
+                        <a href="#" class="active">最新</a>
+                        <a href="#">热门</a>
+                        <a href="#">待回答</a>
+                        <a href="#">本周</a>
+                        <a href="#">本月</a>
+                    </div>
+                </div>
+                <button class="ask-btn"><i class="fa fa-plus"></i> 我要提问</button>
+            </div>
+
+            <article class="question-card">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">投票</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">回答</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">1.2k</span>
+                        <span class="stat-label">浏览</span>
+                    </div>
+                </div>
+                <div class="question-main">
+                    <a class="question-title" href="#">React 18 中 Suspense 的加载策略应该如何搭配路由？</a>
+                    <p class="question-desc">尝试在项目中使用 Suspense 让页面更快出现骨架，但切换路由时还是会闪屏，想知道有哪些实际的组合方式。</p>
+                    <div class="question-meta">
+                        <div class="tag-list">
+                            <a class="tag" href="#">react</a>
+                            <a class="tag" href="#">前端</a>
+                            <a class="tag" href="#">性能</a>
+                        </div>
+                        <span class="meta-user">张三 · 1 小时前</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="question-card">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">投票</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">回答</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">245</span>
+                        <span class="stat-label">浏览</span>
+                    </div>
+                </div>
+                <div class="question-main">
+                    <a class="question-title" href="#">Go 服务里如何优雅地关闭多个 goroutine？</a>
+                    <p class="question-desc">API 服务里开了几个后台 goroutine，用 context 取消还是会出现卡住的问题，想看看大家的处理思路。</p>
+                    <div class="question-meta">
+                        <div class="tag-list">
+                            <a class="tag" href="#">go</a>
+                            <a class="tag" href="#">并发</a>
+                            <a class="tag" href="#">服务端</a>
+                        </div>
+                        <span class="meta-user">李四 · 今天 10:12</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="question-card">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">投票</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">回答</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">98</span>
+                        <span class="stat-label">浏览</span>
+                    </div>
+                </div>
+                <div class="question-main">
+                    <a class="question-title" href="#">小程序里用 WebSocket 传文件是不是不合适？</a>
+                    <p class="question-desc">有个实时白板需求想直接塞二进制过去，担心网络不稳会丢包，有没有更稳的做法。</p>
+                    <div class="question-meta">
+                        <div class="tag-list">
+                            <a class="tag" href="#">小程序</a>
+                            <a class="tag" href="#">websocket</a>
+                            <a class="tag" href="#">实时通信</a>
+                        </div>
+                        <span class="meta-user">小王 · 昨天</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="question-card">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">投票</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">回答</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">703</span>
+                        <span class="stat-label">浏览</span>
+                    </div>
+                </div>
+                <div class="question-main">
+                    <a class="question-title" href="#">如何把 Docker 多阶段构建做的更快？</a>
+                    <p class="question-desc">镜像里有 Node 和 Python 依赖，build 一次得好几分钟，想知道 SegmentFault 上有没有同学遇到过类似的问题。</p>
+                    <div class="question-meta">
+                        <div class="tag-list">
+                            <a class="tag" href="#">docker</a>
+                            <a class="tag" href="#">ci</a>
+                            <a class="tag" href="#">构建</a>
+                        </div>
+                        <span class="meta-user">CoderZ · 2 天前</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </template>
+
+    <script src="../assets/js/header-loader.js"></script>
+</body>
+</html>
