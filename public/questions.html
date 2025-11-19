@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术问答 - SegmentFault 思否</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        :root {
+            --bs-gray-300: #dee2e6;
+            --bs-tertiary-bg: #f8f9fa;
+            --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .question-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .q-nav {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 1rem;
+        }
+
+        .my-nav-link.nav-link {
+            padding: .375rem .75rem !important;
+            border-radius: 0 !important;
+            height: 38px;
+            box-sizing: border-box;
+            color: #212529;
+            border-bottom: 3px solid transparent;
+        }
+
+        .my-nav-link.nav-link:not(.active):hover {
+            background-color: #e2e6ea !important;
+        }
+
+        .my-nav-link.nav-link.active {
+            background-color: transparent !important;
+            font-weight: 600;
+            border-bottom: 3px solid #00965e;
+        }
+
+        .list-card-bg {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .q-list-page .num-card {
+            width: 3rem;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .q-list-page .num-card-answer {
+            border: 1px solid #00965e;
+            color: #00965e !important;
+        }
+
+        .q-list-page .num-card-accept {
+            background-color: #00965e;
+            color: #fff !important;
+        }
+
+        .q-list-page .reads1 {
+            color: #ac560e !important;
+        }
+
+        .q-list-page .reads2 {
+            color: #d56a11 !important;
+        }
+
+        .q-list-page .reads3 {
+            color: #fd7e14 !important;
+        }
+
+        .q-item-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .q-item-title a {
+            color: #212529;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .q-item-title a:hover {
+            color: #00965e;
+        }
+
+        .badge-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0.125rem;
+            display: inline-block;
+        }
+
+        .badge-tag:hover {
+            background-color: #00965e;
+            color: #fff;
+        }
+
+        .split-dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            margin: 0 0.5rem;
+        }
+
+        .user-link {
+            color: #495057;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .user-link:hover {
+            color: #00965e;
+        }
+
+        .time-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .time-link:hover {
+            color: #495057;
+        }
+
+        @media (max-width: 767px) {
+            .q-list-page .num-card {
+                width: auto;
+                height: 24px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 0 0.25rem;
+                border-radius: 0.25rem;
+                margin-right: 0.5rem !important;
+            }
+
+            .q-list-page .num-card span:not(:first-child) {
+                display: none;
+            }
+
+            .q-item-title {
+                font-size: 1rem !important;
+            }
+        }
+
+        .ask-btn {
+            background-color: #00965e;
+            border-color: #00965e;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .ask-btn:hover {
+            background-color: #008052;
+            border-color: #008052;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 150, 94, 0.3);
+        }
+
+        .harmonyos-badge {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .harmonyos-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div data-component="app-shell-host"
+         data-src="header-navigation.html"
+         data-behavior-src="../assets/js/script.js">
+    </div>
+
+    <template data-page-fragment>
+  
+    </template>
+
+    <script src="../assets/js/header-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
