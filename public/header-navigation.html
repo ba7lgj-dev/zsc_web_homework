@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SegmentFault 思否</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div data-component="app-shell">
     <!-- 绿色横线 -->
     <div class="green-line"></div>
 
@@ -20,7 +21,7 @@
             <div class="left-section">
                 <!-- Logo -->
                 <a class="logo" href="#">
-                    <img src="images/logo-b.1ef53c6e.svg" alt="SegmentFault">
+                    <img src="../assets/images/logo-segmentfault.svg" alt="SegmentFault">
                 </a>
 
                 <!-- 导航菜单 -->
@@ -75,7 +76,7 @@
                                 <div class="dropdown-item-main">微信群</div>
                                 <div class="dropdown-item-sub">公众号"联系我们"拉进群</div>
                                 <div class="qr-code">
-                                    <img src="images/qr-code-common.fff548d0.png" alt="微信群二维码">
+                                    <img src="../assets/images/qr-code-wechat-community.png" alt="微信群二维码">
                                 </div>
                             </div>
                         </div>
@@ -155,15 +156,15 @@
             <!-- 社区板块 -->
             <div class="sidebar-section">
                 <div class="sidebar-subtitle">
-                    <img src="images/1591470715-67498d9667680_tiny24.webp" alt="极客观点" style="width: 16px; height: 16px; margin-right: 8px;">
+                    <img src="../assets/images/icon-geek-views.webp" alt="极客观点" style="width: 16px; height: 16px; margin-right: 8px;">
                     极客观点
                 </div>
                 <div class="sidebar-subtitle">
-                    <img src="images/2978758509-67498f579c239_tiny24.webp" alt="项目管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    <img src="../assets/images/icon-project-management.webp" alt="项目管理" style="width: 16px; height: 16px; margin-right: 8px;">
                     项目管理
                 </div>
                 <div class="sidebar-subtitle">
-                    <img src="images/icon-brand-harmonyos.f1e421bb.png" alt="HarmonyOS开发者社区" style="width: 16px; height: 16px; margin-right: 8px;">
+                    <img src="../assets/images/icon-harmonyos-community.png" alt="HarmonyOS开发者社区" style="width: 16px; height: 16px; margin-right: 8px;">
                     HarmonyOS开发者社区
                 </div>
             </div>
@@ -263,11 +264,11 @@
             <!-- 产品服务 -->
             <div class="sidebar-section">
                 <a href="#" class="sidebar-item">
-                    <img src="images/logo-ones.2e4d7b04.svg" alt="ONES研发管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    <img src="../assets/images/logo-ones.svg" alt="ONES研发管理" style="width: 16px; height: 16px; margin-right: 8px;">
                     ONES研发管理
                 </a>
                 <a href="#" class="sidebar-item">
-                    <img src="images/logo-answer.b0220a1c.svg" alt="思否企业问答" style="width: 16px; height: 16px; margin-right: 8px;">
+                    <img src="../assets/images/logo-enterprise-qa.svg" alt="思否企业问答" style="width: 16px; height: 16px; margin-right: 8px;">
                     思否企业问答
                 </a>
             </div>
@@ -275,7 +276,7 @@
 
         <!-- 主内容 -->
         <main class="main-content">
-            <div class="content">
+            <div class="content" data-slot="page-content">
             </div>
         </main>
     </div>
@@ -361,7 +362,7 @@
                     <div class="weixin-login-container">
                         <div class="qr-code-container">
                             <div class="qr-code">
-                                <img src="images/011IvyIA3q2Q000m.jpg" alt="微信扫码登录" width="160" height="160">
+                                <img src="../assets/images/qr-code-wechat-login.jpg" alt="微信扫码登录" width="160" height="160">
                             </div>
                         </div>
                         
@@ -407,6 +408,7 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    </div>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
