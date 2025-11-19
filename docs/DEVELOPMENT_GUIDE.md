@@ -58,18 +58,18 @@
 </body>
 ```
 
-如需直接通过 jsDelivr 引入，可替换为：
+<!-- 如需直接通过 jsDelivr 引入，可替换为：
 
 ```html
 <script src="https://cdn.jsdelivr.net/gh/ba7lgj-dev/zsc_web_homework@main/assets/js/header-loader.js"></script>
-```
+``` -->
 
 ## 路由与跳转原则
 
 1. **页面命名 = 路由**：`public/questions-list.html` 部署后可通过 `/questions-list.html` 访问；若放在子目录 `public/community/events.html`，对应路由为 `/community/events.html`。
 2. **链接统一使用相对路径**：在公共导航或页面内跳转时，优先使用相对地址（例如 `href="questions-list.html"`），这样在本地预览与线上部署都能正常访问。
 3. **锚点与外部链接**：站内锚点统一以 `#/section-id` 形式描述，外部链接添加 `rel="noopener" target="_blank"`。
-4. **CDN 引用策略**：公共框架和脚本可直接使用 `https://cdn.jsdelivr.net/gh/ba7lgj-dev/zsc_web_homework@main/...`，保证其他项目按需注入。若需锁定版本，可在 URL 末尾添加 `@<tag>`。
+<!-- 4. **CDN 引用策略**：公共框架和脚本可直接使用 `https://cdn.jsdelivr.net/gh/ba7lgj-dev/zsc_web_homework@main/...`，保证其他项目按需注入。若需锁定版本，可在 URL 末尾添加 `@<tag>`。 -->
 
 ## 使用提示
 
