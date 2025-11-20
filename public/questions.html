@@ -323,174 +323,196 @@
         </section>
     </template>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabsContainer = document.getElementById('questionsTabs');
-            const questionList = document.getElementById('questionList');
-            const declarationList = document.getElementById('declarationList');
-            const activityList = document.getElementById('activityList');
-            const recommendList = document.getElementById('recommendList');
-            const tagHotList = document.getElementById('tagHotList');
-            const digestList = document.getElementById('digestList');
-            const askButton = document.querySelector('.ask-btn');
-            const askFeedback = document.getElementById('askFeedback');
-
+        (function () {
             const DATA_URL = '../assets/data/questions-data.json';
             let activeTab = '';
             let cachedData = null;
+            let initialized = false;
 
-            function createStatElement(label, value, isAnswer) {
-                const stat = document.createElement('div');
-                stat.className = 'stat' + (isAnswer ? ' answers' : '');
-                stat.innerHTML = `<strong>${value}</strong>${label}`;
-                return stat;
+            function getContentRoot() {
+                const host = document.querySelector('[data-component="app-shell-host"]');
+                const slot = host?.querySelector('[data-slot="page-content"]');
+                return slot || document;
             }
 
-            function renderTabs(tabs) {
-                tabsContainer.innerHTML = '';
-                tabs.forEach(tab => {
-                    const link = document.createElement('a');
-                    link.href = '#';
-                    link.textContent = tab.label;
-                    link.dataset.filter = tab.id;
-                    if (tab.id === activeTab) {
-                        link.classList.add('active');
-                    }
-                    link.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        activeTab = tab.id;
-                        renderTabs(tabs);
-                        renderQuestions();
+            function tryInitialize() {
+                if (initialized) return;
+                const root = getContentRoot();
+                const tabsContainer = root.querySelector('#questionsTabs');
+                const questionList = root.querySelector('#questionList');
+                const declarationList = root.querySelector('#declarationList');
+                const activityList = root.querySelector('#activityList');
+                const recommendList = root.querySelector('#recommendList');
+                const tagHotList = root.querySelector('#tagHotList');
+                const digestList = root.querySelector('#digestList');
+                const askButton = root.querySelector('.ask-btn');
+                const askFeedback = root.querySelector('#askFeedback');
+
+                if (!tabsContainer || !questionList) {
+                    return;
+                }
+
+                initialized = true;
+
+                function createStatElement(label, value, isAnswer) {
+                    const stat = document.createElement('div');
+                    stat.className = `stat${isAnswer ? ' answers' : ''}`;
+                    stat.innerHTML = `<strong>${value}</strong>${label}`;
+                    return stat;
+                }
+
+                function renderTabs(tabs = []) {
+                    tabsContainer.innerHTML = '';
+                    tabs.forEach(tab => {
+                        const a = document.createElement('a');
+                        a.href = '#';
+                        a.className = tab.id === activeTab ? 'active' : '';
+                        a.textContent = tab.label;
+                        a.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            if (tab.id === activeTab) return;
+                            activeTab = tab.id;
+                            renderTabs(tabs);
+                            renderQuestions();
+                        });
+                        tabsContainer.appendChild(a);
                     });
-                    tabsContainer.appendChild(link);
-                });
-            }
-
-            function renderQuestions() {
-                if (!cachedData) return;
-                questionList.innerHTML = '';
-                const filtered = cachedData.questions.filter(q => q.filters.includes(activeTab));
-
-                if (!filtered.length) {
-                    questionList.innerHTML = '<p style="padding:24px;color:#7a7f87;">暂无相关问题，试试其它标签吧～</p>';
-                    return;
                 }
 
-                filtered.forEach(question => {
-                    const article = document.createElement('article');
-                    article.className = 'question-item';
-
-                    const stats = document.createElement('div');
-                    stats.className = 'question-stats';
-                    stats.appendChild(createStatElement('投票', question.stats.votes));
-                    stats.appendChild(createStatElement('回答', question.stats.answers, question.stats.answers > 0));
-                    stats.appendChild(createStatElement('浏览', question.stats.views));
-
-                    const content = document.createElement('div');
-                    content.className = 'question-content';
-                    content.innerHTML = `
-                        <a class="question-title" href="#">${question.title}</a>
-                        <p class="question-desc">${question.description}</p>
-                        <div class="question-meta">
-                            <div class="tag-list">${question.tags.map(tag => `<a class="tag" href="#">${tag}</a>`).join('')}</div>
-                            <div class="meta-user">
-                                <img src="${question.user.avatar}" alt="${question.user.name}">
-                                <span>${question.user.name} · ${question.user.time}</span>
-                            </div>
-                        </div>`;
-
-                    article.append(stats, content);
-                    questionList.appendChild(article);
-                });
-            }
-
-            function renderList(container, items, formatter) {
-                container.innerHTML = '';
-                items.forEach(item => {
-                    container.insertAdjacentHTML('beforeend', formatter(item));
-                });
-            }
-
-            function renderTags(tags) {
-                if (!tagHotList) return;
-                tagHotList.innerHTML = '';
-                tags.forEach(tag => {
-                    const chip = document.createElement('span');
-                    chip.className = 'tag-chip';
-                    chip.innerHTML = `<span class="badge">${tag.count}</span>${tag.name}`;
-                    tagHotList.appendChild(chip);
-                });
-            }
-
-            function renderDigests(digests) {
-                if (!digestList) return;
-                digestList.innerHTML = '';
-                digests.forEach(item => {
-                    const box = document.createElement('div');
-                    box.className = 'digest-item';
-                    box.innerHTML = `
-                        <h4>${item.title}</h4>
-                        <p>${item.summary}</p>
-                        <span>${item.meta}</span>
-                    `;
-                    digestList.appendChild(box);
-                });
-            }
-
-            function showLoading() {
-                questionList.innerHTML = '<p class="loading-block">数据加载中...</p>';
-            }
-
-            function showError(message) {
-                questionList.innerHTML = `<div class="error-block">${message}</div>`;
-            }
-
-            function initInteractions(data) {
-                if (!askButton) return;
-                askButton.addEventListener('click', () => {
-                    askButton.classList.toggle('is-clicked');
-                    if (askFeedback && data.askHints) {
-                        const nextHint = data.askHints[Math.floor(Math.random() * data.askHints.length)];
-                        askFeedback.textContent = nextHint;
-                        askFeedback.classList.add('visible');
-                        setTimeout(() => askFeedback.classList.remove('visible'), 2600);
+                function renderQuestions() {
+                    if (!cachedData) return;
+                    const filtered = cachedData.questions.filter(q => q.tabId === activeTab);
+                    if (!filtered.length) {
+                        questionList.innerHTML = '<p class="loading-block">暂无该分类问题，去其他标签看看吧~</p>';
+                        return;
                     }
-                });
-            }
+                    questionList.innerHTML = '';
 
-            function hydratePage(data) {
-                cachedData = data;
-                activeTab = data.tabs?.[0]?.id || '';
-                if (!activeTab) {
-                    showError('没有可用的数据，请稍后再试');
-                    return;
+                    filtered.forEach(question => {
+                        const article = document.createElement('article');
+                        article.className = 'question-item';
+
+                        const stats = document.createElement('div');
+                        stats.className = 'question-stats';
+                        stats.appendChild(createStatElement('投票', question.stats.votes));
+                        stats.appendChild(createStatElement('回答', question.stats.answers, question.stats.answers > 0));
+                        stats.appendChild(createStatElement('浏览', question.stats.views));
+
+                        const content = document.createElement('div');
+                        content.className = 'question-content';
+                        content.innerHTML = `
+                            <a class="question-title" href="#">${question.title}</a>
+                            <p class="question-desc">${question.description}</p>
+                            <div class="question-meta">
+                                <div class="tag-list">${question.tags.map(tag => `<a class="tag" href="#">${tag}</a>`).join('')}</div>
+                                <div class="meta-user">
+                                    <img src="${question.user.avatar}" alt="${question.user.name}">
+                                    <span>${question.user.name} · ${question.user.time}</span>
+                                </div>
+                            </div>`;
+
+                        article.append(stats, content);
+                        questionList.appendChild(article);
+                    });
                 }
 
-                renderTabs(data.tabs);
-                renderQuestions();
-                renderList(declarationList, data.declaration || [], (text) => `<li>${text}</li>`);
-                renderList(activityList, data.activities || [], (item) => `<a href="#">${item.title} <span>${item.type}</span></a>`);
-                renderList(recommendList, data.recommendations || [], (item) => `<a href="#">${item.title} <span>${item.stats}</span></a>`);
-                renderTags(data.topTags || []);
-                renderDigests(data.digests || []);
-                initInteractions(data);
-            }
+                function renderList(container, items, formatter) {
+                    if (!container) return;
+                    container.innerHTML = '';
+                    items.forEach(item => {
+                        container.insertAdjacentHTML('beforeend', formatter(item));
+                    });
+                }
 
-            async function loadData() {
-                try {
-                    showLoading();
-                    const response = await fetch(DATA_URL);
-                    if (!response.ok) {
-                        throw new Error('数据加载失败');
+                function renderTags(tags) {
+                    if (!tagHotList) return;
+                    tagHotList.innerHTML = '';
+                    tags.forEach(tag => {
+                        const chip = document.createElement('span');
+                        chip.className = 'tag-chip';
+                        chip.innerHTML = `<span class="badge">${tag.count}</span>${tag.name}`;
+                        tagHotList.appendChild(chip);
+                    });
+                }
+
+                function renderDigests(digests) {
+                    if (!digestList) return;
+                    digestList.innerHTML = '';
+                    digests.forEach(item => {
+                        const box = document.createElement('div');
+                        box.className = 'digest-item';
+                        box.innerHTML = `
+                            <h4>${item.title}</h4>
+                            <p>${item.summary}</p>
+                            <span>${item.meta}</span>
+                        `;
+                        digestList.appendChild(box);
+                    });
+                }
+
+                function showLoading() {
+                    questionList.innerHTML = '<p class="loading-block">数据加载中...</p>';
+                }
+
+                function showError(message) {
+                    questionList.innerHTML = `<div class="error-block">${message}</div>`;
+                }
+
+                function initInteractions(data) {
+                    if (!askButton) return;
+                    askButton.addEventListener('click', () => {
+                        askButton.classList.toggle('is-clicked');
+                        if (askFeedback && data.askHints) {
+                            const nextHint = data.askHints[Math.floor(Math.random() * data.askHints.length)];
+                            askFeedback.textContent = nextHint;
+                            askFeedback.classList.add('visible');
+                            setTimeout(() => askFeedback.classList.remove('visible'), 2600);
+                        }
+                    });
+                }
+
+                function hydratePage(data) {
+                    cachedData = data;
+                    activeTab = data.tabs?.[0]?.id || '';
+                    if (!activeTab) {
+                        showError('没有可用的数据，请稍后再试');
+                        return;
                     }
-                    const data = await response.json();
-                    hydratePage(data);
-                } catch (error) {
-                    showError(error.message || '数据拉取异常');
+
+                    renderTabs(data.tabs);
+                    renderQuestions();
+                    renderList(declarationList, data.declaration || [], (text) => `<li>${text}</li>`);
+                    renderList(activityList, data.activities || [], (item) => `<a href="#">${item.title} <span>${item.type}</span></a>`);
+                    renderList(recommendList, data.recommendations || [], (item) => `<a href="#">${item.title} <span>${item.stats}</span></a>`);
+                    renderTags(data.topTags || []);
+                    renderDigests(data.digests || []);
+                    initInteractions(data);
                 }
+
+                async function loadData() {
+                    try {
+                        showLoading();
+                        const response = await fetch(DATA_URL);
+                        if (!response.ok) {
+                            throw new Error('数据加载失败');
+                        }
+                        const data = await response.json();
+                        hydratePage(data);
+                    } catch (error) {
+                        showError(error.message || '数据拉取异常');
+                    }
+                }
+
+                loadData();
             }
 
-            loadData();
-        });
+            const host = document.querySelector('[data-component="app-shell-host"]');
+            if (host) {
+                host.addEventListener('app-shell:loaded', tryInitialize);
+            }
+
+            window.addEventListener('load', tryInitialize);
+        })();
     </script>
     <script src="../assets/js/header-loader.js"></script>
 </body>
