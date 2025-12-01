@@ -323,7 +323,7 @@
         </section>
     </template>
     <script>
-        (function () {
+    
             const DATA_URL = '../assets/data/questions-data.json';
             let activeTab = '';
             let cachedData = null;
@@ -380,8 +380,9 @@
                 }
 
                 function renderQuestions() {
+                    console.log(  cachedData);
                     if (!cachedData) return;
-                    const filtered = cachedData.questions.filter(q => q.tabId === activeTab);
+                    const filtered = cachedData.questions;
                     if (!filtered.length) {
                         questionList.innerHTML = '<p class="loading-block">暂无该分类问题，去其他标签看看吧~</p>';
                         return;
@@ -512,7 +513,7 @@
             }
 
             window.addEventListener('load', tryInitialize);
-        })();
+     
     </script>
     <script src="../assets/js/header-loader.js"></script>
 </body>
