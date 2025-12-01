@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术问答 - SegmentFault 思否</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        :root {
+            --bs-gray-300: #dee2e6;
+            --bs-tertiary-bg: #f8f9fa;
+            --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .question-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .q-nav {
+            border-bottom: 1px solid #dee2e6;
+            margin-bottom: 1rem;
+        }
+
+        .my-nav-link.nav-link {
+            padding: .375rem .75rem !important;
+            border-radius: 0 !important;
+            height: 38px;
+            box-sizing: border-box;
+            color: #212529;
+            border-bottom: 3px solid transparent;
+        }
+
+        .my-nav-link.nav-link:not(.active):hover {
+            background-color: #e2e6ea !important;
+        }
+
+        .my-nav-link.nav-link.active {
+            background-color: transparent !important;
+            font-weight: 600;
+            border-bottom: 3px solid #00965e;
+        }
+
+        .list-card-bg {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .q-list-page .num-card {
+            width: 3rem;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+
+        .q-list-page .num-card-answer {
+            border: 1px solid #00965e;
+            color: #00965e !important;
+        }
+
+        .q-list-page .num-card-accept {
+            background-color: #00965e;
+            color: #fff !important;
+        }
+
+        .q-list-page .reads1 {
+            color: #ac560e !important;
+        }
+
+        .q-list-page .reads2 {
+            color: #d56a11 !important;
+        }
+
+        .q-list-page .reads3 {
+            color: #fd7e14 !important;
+        }
+
+        .q-item-title {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .q-item-title a {
+            color: #212529;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .q-item-title a:hover {
+            color: #00965e;
+        }
+
+        .badge-tag {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0.125rem;
+            display: inline-block;
+        }
+
+        .badge-tag:hover {
+            background-color: #00965e;
+            color: #fff;
+        }
+
+        .split-dot {
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            margin: 0 0.5rem;
+        }
+
+        .user-link {
+            color: #495057;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .user-link:hover {
+            color: #00965e;
+        }
+
+        .time-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .time-link:hover {
+            color: #495057;
+        }
+
+        @media (max-width: 767px) {
+            .q-list-page .num-card {
+                width: auto;
+                height: 24px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 0 0.25rem;
+                border-radius: 0.25rem;
+                margin-right: 0.5rem !important;
+            }
+
+            .q-list-page .num-card span:not(:first-child) {
+                display: none;
+            }
+
+            .q-item-title {
+                font-size: 1rem !important;
+            }
+        }
+
+        .ask-btn {
+            background-color: #00965e;
+            border-color: #00965e;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .ask-btn:hover {
+            background-color: #008052;
+            border-color: #008052;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 150, 94, 0.3);
+        }
+
+        .harmonyos-badge {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .harmonyos-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(255, 107, 53, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div data-component="app-shell-host"
+         data-src="header-navigation.html"
+         data-behavior-src="../assets/js/script.js">
+    </div>
+
+    <template data-page-fragment>
+        <div class="question-container">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="mb-0 me-4">
+                        <a href="#" class="text-body text-decoration-none me-2">文章</a>
+                        <a href="#" class="text-green-600 text-decoration-none font-bold me-2">问题</a>
+                    </div>
+                    <div class="hide-scroll-bar justify-content-start justify-content-md-center flex-fill q-nav flex-nowrap overflow-auto align-items-center nav nav-pills">
+                        <a href="#" class="my-nav-link bg-transparent text-green-600 me-1 active flex-shrink-0 nav-link" data-sort="newest">最新</a>
+                        <a href="#" class="my-nav-link bg-transparent text-body me-1 flex-shrink-0 nav-link" data-sort="unanswered">待回答</a>
+                        <a href="#" class="my-nav-link bg-transparent text-body me-1 flex-shrink-0 nav-link" data-sort="views">阅读数</a>
+                        <a href="#" class="my-nav-link bg-transparent text-body me-1 flex-shrink-0 nav-link" data-sort="votes">得票数</a>
+                    </div>
+                    <button class="ask-btn btn btn-primary ms-3">
+                        <i class="fas fa-plus me-2"></i>写文章
+                    </button>
+                    <button class="ask-btn btn btn-green ms-2">
+                        <i class="fas fa-plus me-2"></i>提问题
+                    </button>
+                </div>
+
+                <div class="list-card-bg overflow-hidden card">
+                    <ul class="list-group list-group-flush">
+                        <!-- 问题1 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 text-secondary">
+                                        <span class="font-size-16 me-1 me-sm-0">0</span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">19</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">【投票】鸿蒙开发中你最关注哪方面的性能优化？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">lees_0517</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">今天 16:46 提问</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题2 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 text-secondary">
+                                        <span class="font-size-16 me-1 me-sm-0">0<sup>+1</sup></span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">33</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">【投票】大家都是在哪里学习鸿蒙的？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">justcode_</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">今天 10:14 提问</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题3 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 text-secondary">
+                                        <span class="font-size-16 me-1 me-sm-0">0</span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">82</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">【投票】你最常用的鸿蒙特性是哪个？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">代码诗人</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">11月19日提问</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题4 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 num-card-answer">
+                                        <span class="font-size-16 me-1 me-sm-0">1</span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">329</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">UIAbility的启动模式与应用的冷启动、热启动有关系吗？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">lala1902</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">11月18日回答</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题5 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 num-card-answer">
+                                        <span class="font-size-16 me-1 me-sm-0">1</span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">312</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">UIAbility的启动模式会影响其在后台的存活优先级吗？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">Ezreal10</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">11月18日回答</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题6 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">3</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 num-card-answer">
+                                        <span class="font-size-16 me-1 me-sm-0">2<sup>+1</sup></span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1 reads2">
+                                        <span class="font-size-16">734</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">Spring Boot 微服务架构中如何实现分布式事务管理？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">spring</a>
+                                                <a href="#" class="m-1 badge-tag">微服务</a>
+                                                <a href="#" class="m-1 badge-tag">分布式</a>
+                                                <a href="#" class="m-1 badge-tag">java</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">孙八</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">昨天 18:45 回答</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题7 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">0</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 text-secondary">
+                                        <span class="font-size-16 me-1 me-sm-0">0</span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1">
+                                        <span class="font-size-16">45</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">HarmonyOS ArkTS 开发中如何实现跨设备数据同步？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">harmonyos</a>
+                                                <a href="#" class="m-1 badge-tag">arkts</a>
+                                                <a href="#" class="m-1 badge-tag">移动开发</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">周九</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">昨天 16:20 提问</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 问题8 -->
+                        <li class="q-list-page p-0 list-group-item">
+                            <div class="p-3 d-flex flex-column flex-md-row">
+                                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                                    <div class="num-card py-1 me-2">
+                                        <span class="font-size-16">6</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">投票</span>
+                                    </div>
+                                    <div class="num-card py-1 me-2 num-card-answer">
+                                        <span class="font-size-16 me-1 me-sm-0">4<sup>+2</sup></span>
+                                        <span class="font-size-14">回答</span>
+                                    </div>
+                                    <div class="num-card text-secondary py-1 reads3">
+                                        <span class="font-size-16">1.9k</span>
+                                        <span class="d-block d-sm-none" style="width:4px"></span>
+                                        <span class="font-size-14">阅读</span>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <div class="d-flex align-items-start" style="margin-bottom:12px">
+                                        <h3 class="q-item-title mb-0 h6">
+                                            <a href="#" class="text-body" target="">TypeScript 中如何正确使用泛型和高级类型进行类型安全的编程？</a>
+                                        </h3>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                                        <div class="d-flex flex-wrap align-items-center me-3">
+                                            <div class="m-n1 d-flex flex-wrap align-items-center">
+                                                <a href="#" class="m-1 badge-tag">typescript</a>
+                                                <a href="#" class="m-1 badge-tag">前端</a>
+                                                <a href="#" class="m-1 badge-tag">类型系统</a>
+                                            </div>
+                                        </div>
+                                        <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                                            <a href="#" class="user-link">吴十</a>
+                                            <span class="split-dot"></span>
+                                            <a href="#" class="time-link">昨天 14:10 回答</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 分页 -->
+                <div class="d-flex justify-content-center mt-4">
+                    <div class="pagination-container">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="prev">上一页</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn active" href="#" data-type="number">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="number">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="number">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="number">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="number">5</a>
+                        </li>
+                        <li class="page-item">
+                            <span class="page-link pagination-ellipsis">...</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link pagination-btn" href="#" data-type="next">下一页</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+    </template>
+
+    <script src="../assets/js/header-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检测屏幕宽度变化
+            let isMobile = window.innerWidth < 768;
+            
+            function updateResponsiveState() {
+                isMobile = window.innerWidth < 768;
+                // 在这里可以根据屏幕尺寸调整UI元素
+                console.log('屏幕尺寸更新:', isMobile ? '移动端' : '桌面端');
+            }
+            
+            // 监听窗口大小变化
+            window.addEventListener('resize', updateResponsiveState);
+            
+            // 排序功能
+            const sortLinks = document.querySelectorAll('.q-nav .my-nav-link');
+            
+            sortLinks.forEach(link => {
+                // 为移动端添加触摸事件支持
+                if (isMobile) {
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    link.addEventListener('touchstart', function(e) {
+                        touchStartX = e.changedTouches[0].screenX;
+                    });
+                    
+                    link.addEventListener('touchend', function(e) {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe(this);
+                    });
+                }
+                
+                // 点击事件处理
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    handleSortClick(this);
+                });
+            });
+            
+            // 处理排序点击
+            function handleSortClick(element) {
+                // 移除所有活动状态
+                sortLinks.forEach(el => el.classList.remove('active'));
+                
+                // 添加当前活动状态
+                element.classList.add('active');
+                
+                // 获取排序类型
+                const sortType = element.getAttribute('data-sort');
+                
+                // 执行排序操作
+                simulateSorting(sortType);
+                
+                // 滚动到问题列表顶部（优化移动端体验）
+                if (isMobile) {
+                    document.querySelector('.question-container').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }
+            }
+            
+            // 处理滑动（仅移动端）
+            function handleSwipe(element) {
+                const swipeThreshold = 50;
+                const diff = touchEndX - touchStartX;
+                
+                // 只有点击而不是滑动时才触发排序
+                if (Math.abs(diff) < swipeThreshold) {
+                    handleSortClick(element);
+                }
+            }
+            
+            // 分页交互
+            const paginationBtns = document.querySelectorAll('.pagination .page-link');
+            let currentPage = 1;
+            
+            paginationBtns.forEach(btn => {
+                // 为移动端添加触摸事件支持
+                if (isMobile) {
+                    btn.addEventListener('touchstart', function() {
+                        this.classList.add('touch-active');
+                    });
+                    
+                    btn.addEventListener('touchend', function() {
+                        this.classList.remove('touch-active');
+                    });
+                }
+                
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 如果按钮被禁用，不执行任何操作
+                    if (this.disabled) return;
+                    
+                    const btnType = this.getAttribute('data-type');
+                    
+                    if (btnType === 'number') {
+                        currentPage = parseInt(this.textContent);
+                    } else if (btnType === 'prev' && currentPage > 1) {
+                        currentPage--;
+                    } else if (btnType === 'next' && currentPage < 5) {
+                        currentPage++;
+                    }
+                    
+                    // 更新分页UI
+                    updatePaginationUI(currentPage);
+                    
+                    // 加载新页面数据的逻辑
+                    loadPageData(currentPage);
+                });
+            });
+            
+            // 模拟排序函数
+            function simulateSorting(sortType) {
+                console.log('按', sortType, '排序');
+                
+                // 演示用简单动画效果
+                const questionList = document.querySelector('.question-container');
+                
+                // 添加排序动画类
+                questionList.classList.add('sorting-animation');
+                
+                setTimeout(() => {
+                    questionList.classList.remove('sorting-animation');
+                }, 400);
+            }
+            
+            // 加载页面数据
+            function loadPageData(page) {
+                console.log('加载第', page, '页数据');
+                
+                // 添加加载动画
+                const questionItems = document.querySelectorAll('.q-item');
+                
+                questionItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '0.6';
+                        
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 200);
+                    }, index * 50);
+                });
+            }
+            
+            // 更新分页UI函数
+            function updatePaginationUI(page) {
+                // 更新页码按钮状态
+                document.querySelectorAll('.pagination-btn[data-type="number"]').forEach(btn => {
+                    if (parseInt(btn.textContent) === page) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // 更新上一页/下一页按钮状态
+                const prevBtn = document.querySelector('.pagination-btn[data-type="prev"]');
+                const nextBtn = document.querySelector('.pagination-btn[data-type="next"]');
+                
+                if (prevBtn) {
+                    prevBtn.disabled = page === 1;
+                    prevBtn.classList.toggle('disabled', page === 1);
+                }
+                
+                if (nextBtn) {
+                    nextBtn.disabled = page === 5; // 假设总共有5页
+                    nextBtn.classList.toggle('disabled', page === 5);
+                }
+                
+                // 在移动端，自动滚动到可见区域
+                if (isMobile) {
+                    const activePageBtn = document.querySelector('.pagination-btn.active');
+                    if (activePageBtn) {
+                        const paginationContainer = document.querySelector('.pagination-container');
+                        
+                        // 计算滚动位置，使当前页码居中显示
+                        const scrollLeft = activePageBtn.offsetLeft - (paginationContainer.clientWidth / 2) + (activePageBtn.clientWidth / 2);
+                        
+                        paginationContainer.scrollTo({
+                            left: scrollLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
