@@ -356,3 +356,128 @@
 
     window.initializeHeaderInteractions = initializeHeaderInteractions;
 })();
+
+// 头条咨询轮播功能
+function initializeHeadlineCarousel() {
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (!carouselContainer) {
+        return;
+    }
+
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.querySelector('.carousel-control.prev');
+    const nextBtn = document.querySelector('.carousel-control.next');
+    
+    let currentIndex = 0;
+    let autoplayInterval;
+    
+    // 设置活动项
+    function setActiveItem(index) {
+        // 隐藏所有项并移除活动状态
+        carouselItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        indicators.forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+        
+        // 显示当前项并添加活动状态
+        carouselItems[index].classList.add('active');
+        indicators[index].classList.add('active');
+        currentIndex = index;
+    }
+    
+    // 下一项
+    function nextItem() {
+        let nextIndex = (currentIndex + 1) % carouselItems.length;
+        setActiveItem(nextIndex);
+    }
+    
+    // 上一项
+    function prevItem() {
+        let prevIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+        setActiveItem(prevIndex);
+    }
+    
+    // 开始自动播放
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextItem, 5000);
+    }
+    
+    // 停止自动播放
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+        }
+    }
+    
+    // 事件监听
+    prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        prevItem();
+        startAutoplay();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        nextItem();
+        startAutoplay();
+    });
+    
+    // 指示器点击事件
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            stopAutoplay();
+            setActiveItem(index);
+            startAutoplay();
+        });
+    });
+    
+    // 鼠标悬停时停止自动播放
+    carouselContainer.addEventListener('mouseenter', stopAutoplay);
+    carouselContainer.addEventListener('mouseleave', startAutoplay);
+    
+    // 开始自动播放
+    startAutoplay();
+}
+
+// 图片懒加载优化
+function initializeImageLazyLoading() {
+    const lazyImages = document.querySelectorAll('.carousel-img');
+    
+    // 检查浏览器是否支持IntersectionObserver
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('src');
+                    
+                    // 预加载图片
+                    const tempImg = new Image();
+                    tempImg.onload = function() {
+                        img.style.opacity = '0';
+                        setTimeout(() => {
+                            img.style.transition = 'opacity 0.5s ease-in-out';
+                            img.style.opacity = '1';
+                        }, 100);
+                    };
+                    tempImg.src = src;
+                    
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+}
+
+// 页面加载完成后初始化
+window.addEventListener('DOMContentLoaded', () => {
+    initializeHeadlineCarousel();
+    initializeImageLazyLoading();
+});

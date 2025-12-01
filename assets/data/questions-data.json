@@ -1,0 +1,170 @@
+{
+  "tabs": [
+    { "id": "latest", "label": "最新" },
+    { "id": "hot", "label": "热门" },
+    { "id": "unanswered", "label": "待回答" },
+    { "id": "week", "label": "本周" },
+    { "id": "month", "label": "本月" }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "title": "rad.huice 的 Element-Plus 里 Element-Plus 的组件有哪些不同？",
+      "description": "在项目里想换掉原生组件库，看到社区里有人推荐使用 rad.huice 的改造版本，想知道设计风格和 API 上有哪些变化。",
+      "stats": { "votes": 0, "answers": 1, "views": 246 },
+      "tags": ["element-ui", "vue.js", "组件库"],
+      "user": { "name": "rad.huice", "time": "刚刚", "avatar": "https://avatars.githubusercontent.com/u/1?v=4" },
+      "filters": ["latest", "hot", "week", "month"]
+    },
+    {
+      "id": 2,
+      "title": "AMH7.3 中，无法安装扩展该怎么办？",
+      "description": "装完环境后想在面板中安装 PHP 扩展但一直提示失败，日志也没有明显错误，是否需要手动编译？",
+      "stats": { "votes": 0, "answers": 0, "views": 187 },
+      "tags": ["php", "服务器"],
+      "user": { "name": "amh.jser", "time": "5 分钟前", "avatar": "https://avatars.githubusercontent.com/u/2?v=4" },
+      "filters": ["latest", "unanswered", "week"]
+    },
+    {
+      "id": 3,
+      "title": "macOS 如何让 Prompt 更像 Spyder？",
+      "description": "切换到 macOS 之后不太习惯终端的提示符样式，有没有现成的主题能模拟 Spyder 内置的浅色风格？",
+      "stats": { "votes": 0, "answers": 2, "views": 377 },
+      "tags": ["macos", "命令行"],
+      "user": { "name": "amh.liang", "time": "10 分钟前", "avatar": "https://avatars.githubusercontent.com/u/3?v=4" },
+      "filters": ["latest", "hot", "week"]
+    },
+    {
+      "id": 4,
+      "title": "如何实现 Anaconda Prompt 里类似 Spyder 的补全体验？",
+      "description": "需要在命令行快速切换虚拟环境和执行脚本，Spyder 的自动补全很好用，想在 Anaconda Prompt 里实现类似交互。",
+      "stats": { "votes": 1, "answers": 0, "views": 102 },
+      "tags": ["python", "anaconda", "终端"],
+      "user": { "name": "pythonist", "time": "22 分钟前", "avatar": "https://avatars.githubusercontent.com/u/4?v=4" },
+      "filters": ["latest", "unanswered", "month"]
+    },
+    {
+      "id": 5,
+      "title": "使用 PySide6-Essentials 进入 PySide6 之后，pyapp 运行报错 ImportError？",
+      "description": "刚把项目升级到 PySide6，官方示例正常，但在自己的 pyapp 上加载 qml 时报 ImportError: No module named 'PySide6'，该如何排查？",
+      "stats": { "votes": 3, "answers": 2, "views": 501 },
+      "tags": ["pyside", "qt", "python"],
+      "user": { "name": "Frank", "time": "35 分钟前", "avatar": "https://avatars.githubusercontent.com/u/5?v=4" },
+      "filters": ["latest", "hot", "week", "month"]
+    },
+    {
+      "id": 6,
+      "title": "Electron 项目内嵌 Monaco Editor 时如何减少体积？",
+      "description": "想在桌面端提供一个轻量代码编辑器，直接引入 Monaco 太大了，有没有按需加载或拆分语言包的方案？",
+      "stats": { "votes": 2, "answers": 1, "views": 620 },
+      "tags": ["electron", "monaco-editor", "性能优化"],
+      "user": { "name": "desk.dev", "time": "42 分钟前", "avatar": "https://avatars.githubusercontent.com/u/6?v=4" },
+      "filters": ["latest", "hot", "week", "month"]
+    },
+    {
+      "id": 7,
+      "title": "Next.js 14 App Router 如何优雅处理 404 与 500 页面？",
+      "description": "升级到 App Router 后，希望 404/500 页面有统一布局并能自定义 Meta，官方示例感觉太简单了，最佳实践是怎样的？",
+      "stats": { "votes": 5, "answers": 3, "views": 890 },
+      "tags": ["next.js", "react", "server-components"],
+      "user": { "name": "frontend.wu", "time": "1 小时前", "avatar": "https://avatars.githubusercontent.com/u/7?v=4" },
+      "filters": ["latest", "hot", "week", "month"]
+    },
+    {
+      "id": 8,
+      "title": "Rust 中如何实现零拷贝的日志写入？",
+      "description": "在高吞吐日志服务里，希望利用 mmap 或 io_uring 进行零拷贝写入，社区里有参考实现或 crate 推荐吗？",
+      "stats": { "votes": 7, "answers": 0, "views": 410 },
+      "tags": ["rust", "日志", "性能"],
+      "user": { "name": "rustacean", "time": "2 小时前", "avatar": "https://avatars.githubusercontent.com/u/8?v=4" },
+      "filters": ["latest", "unanswered", "week", "month"]
+    },
+    {
+      "id": 9,
+      "title": "如何在 Kubernetes 上优雅地做数据库蓝绿发布？",
+      "description": "应用做蓝绿发布已经跑通，但数据库迁移/回滚方案还不清晰，是否有可复制的流水线模板？",
+      "stats": { "votes": 4, "answers": 1, "views": 730 },
+      "tags": ["kubernetes", "devops", "数据库"],
+      "user": { "name": "cloud.ops", "time": "3 小时前", "avatar": "https://avatars.githubusercontent.com/u/9?v=4" },
+      "filters": ["latest", "hot", "week", "month"]
+    },
+    {
+      "id": 10,
+      "title": "Vue3 里如何为 Pinia store 自动生成类型安全的 API 客户端？",
+      "description": "正在搭建微前端，需要把业务 store 暴露出去，想要自动生成可消费的 SDK，避免手写类型，是否有现成工具？",
+      "stats": { "votes": 1, "answers": 0, "views": 266 },
+      "tags": ["vue3", "pinia", "typescript"],
+      "user": { "name": "tsfan", "time": "4 小时前", "avatar": "https://avatars.githubusercontent.com/u/10?v=4" },
+      "filters": ["latest", "unanswered", "week"]
+    },
+    {
+      "id": 11,
+      "title": "如何用 Playwright 给移动端页面做可视化回归？",
+      "description": "需要在 CI 里对 H5 页面做截图比对，但设备尺寸和 DPR 多样，截图抖动怎么处理才能让回归稳定？",
+      "stats": { "votes": 3, "answers": 2, "views": 542 },
+      "tags": ["playwright", "自动化测试", "ci"],
+      "user": { "name": "qa.lee", "time": "5 小时前", "avatar": "https://avatars.githubusercontent.com/u/11?v=4" },
+      "filters": ["latest", "hot", "week"]
+    },
+    {
+      "id": 12,
+      "title": "SwiftData 与 Core Data 迁移有哪些坑？",
+      "description": "尝试把老项目迁移到 SwiftData，发现模型关系和持久化策略有差异，迁移时需要注意哪些不兼容点？",
+      "stats": { "votes": 6, "answers": 1, "views": 468 },
+      "tags": ["swift", "ios", "core-data"],
+      "user": { "name": "ios.mei", "time": "昨晚", "avatar": "https://avatars.githubusercontent.com/u/12?v=4" },
+      "filters": ["hot", "month"]
+    }
+  ],
+  "declaration": [
+    "我们相信知识可以被分享，并持续被优化。",
+    "每一个技术问题都值得被认真对待。",
+    "让技术人成长是我们存在的价值。",
+    "社区因你而精彩，感谢每一次真诚的回答。"
+  ],
+  "activities": [
+    { "title": "HarmonyOS 星火计划", "type": "活动" },
+    { "title": "小程序性能优化公开课", "type": "直播" },
+    { "title": "云原生观测最佳实践", "type": "专栏" },
+    { "title": "前端测试与可观测性沙龙", "type": "线下" }
+  ],
+  "recommendations": [
+    { "title": "如何建立 GPU 管理体系", "stats": "780 浏览" },
+    { "title": "Chrome 扩展安全指北", "stats": "540 浏览" },
+    { "title": "AI 与 Web 前端协作指南", "stats": "320 浏览" },
+    { "title": "前端性能基线与预算设定", "stats": "300 浏览" }
+  ],
+  "askHints": [
+    "提问前别忘了搜索一下是否已有答案~",
+    "清晰的问题描述更容易获得回答！",
+    "记得补充相关代码和报错截图。",
+    "带上期望结果和尝试过的方案，能更快得到帮助。"
+  ],
+  "topTags": [
+    { "name": "vue.js", "count": "2.3k" },
+    { "name": "react", "count": "1.9k" },
+    { "name": "python", "count": "1.6k" },
+    { "name": "kubernetes", "count": "980" },
+    { "name": "go", "count": "870" },
+    { "name": "rust", "count": "820" },
+    { "name": "前端", "count": "780" },
+    { "name": "ai", "count": "760" }
+  ],
+  "digests": [
+    {
+      "title": "如何定位 Node.js 生产内存泄漏？",
+      "summary": "包含生产环境采样、heap 快照对比、常见泄漏模式排查步骤。",
+      "meta": "12 条讨论"
+    },
+    {
+      "title": "K8s 水平扩缩容最佳实践",
+      "summary": "从 HPA/VPA 到事件驱动缩容的实战经验分享。",
+      "meta": "8 条讨论"
+    },
+    {
+      "title": "服务端组件下的 React 性能调优",
+      "summary": "重绘边界、流式渲染、缓存层拆分的案例记录。",
+      "meta": "15 条讨论"
+    }
+  ]
+}
