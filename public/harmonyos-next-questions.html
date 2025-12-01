@@ -1,0 +1,1771 @@
+<!-- 该页面用于基于外部框架页面开发所用的样例可复制后粘贴到自己的页面中使用 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="专业 HarmonyOS 鸿蒙系统开发学习专区，提供最新开发教程、技术资讯、视频课程和直播培训。汇集原创技术文章和开发心得，交流鸿蒙开发技术问题，助力开发者快速掌握鸿蒙应用开发，打造优质应用生态。" />
+  <title>HarmonyOS 开发者社区 | 一站式鸿蒙开发学习专区 - SegmentFault 思否</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div data-component="app-shell-host" data-src="header-navigation.html" data-behavior-src="../assets/js/script.js">
+  </div>
+
+  <template data-page-fragment>
+    <section class="my-page">
+      <img src="../assets/images/harmonyosImage/banner.webp" alt="HarmonyOS相关图片" class="responsive-img"
+        style="max-width: 100%; height: auto; object-fit: contain" />
+      <div style="margin-top: 1.5rem ">
+        <h4>HarmonyOS 开发者社区</h4>
+        <div class="brand-content">
+          <p>发布最新的技术动态、学习资源和活动信息，致力于推动鸿蒙生态的创新发展。</p>
+        </div>
+      </div>
+
+      <!-- 头条资讯模块 -->
+      <div class="headline-news-section">
+        <div class="headline-header">
+          <h3>头条资讯</h3>
+          <a href="#" class="more-link">更多 &gt;</a>
+        </div>
+
+        <div class="headline-content">
+          <!-- 左侧大图区域 -->
+          <div class="headline-main">
+            <div class="headline-banner">
+              <img src="../assets/images/harmonyosImage/image1.webp" alt="AGC能力体验和研讨会" class="banner-img" />
+              <div class="banner-overlay">
+                <div class="banner-title">HDD·AGC能力体验和研讨会(测试专场)</div>
+                <div class="banner-date">2025.12.04·中国广州</div>
+              </div>
+            </div>
+            <div class="headline-event-info">
+              <h4>AGC能力体验和研讨会（测试专场）</h4>
+              <p>本次活动为鸿蒙应用测试专场，华为技术专家将全面介绍测试相关的能力和流程。</p>
+            </div>
+          </div>
+
+          <!-- 右侧新闻列表 -->
+          <div class="news-list">
+            <div class="news-item">
+              <div class="news-content">
+                <h4 class="news-title">
+                  <span class="news-icon fa fa-tags"></span>
+                  【FAQ】HarmonyOS SDK 闭源开放能力 — Notification Kit
+                </h4>
+                <div class="news-date">11月18日</div>
+              </div>
+              <div class="news-image">
+                <img src="../assets/images/harmonyosImage/image9.webp" alt="通知开发" class="small-img" />
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="news-content">
+                <h4 class="news-title">
+                  <span class="news-icon fa fa-tags"></span>
+                  【FAQ】HarmonyOS SDK 闭源开放能力 — Account Kit
+                </h4>
+                <div class="news-date">11月18日</div>
+              </div>
+              <div class="news-image">
+                <img src="../assets/images/harmonyosImage/image10.webp" alt="账号开发" class="small-img" />
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="news-content">
+                <h4 class="news-title">
+                  <span class="news-icon fa fa-lightbulb"></span>
+                  CodeGenie AI辅助开发意图，让小艺"看见"你的鸿蒙应用
+                </h4>
+                <div class="news-date">今天 15:21</div>
+              </div>
+              <div class="news-image">
+                <img src="../assets/images/harmonyosImage/image11.webp" alt="AI辅助开发" class="small-img" />
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="news-content">
+                <h4 class="news-title">
+                  <span class="news-icon fa fa-question-circle"></span>
+                  uni-app开发HarmonyOS应用热点问题集
+                </h4>
+                <div class="news-date">11月19日</div>
+              </div>
+              <div class="news-image">
+                <img src="../assets/images/harmonyosImage/image12.webp" alt="uni-app开发" class="small-img" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 开发者活动模块 -->
+      <div class="developer-activities-section">
+        <div class="section-header">
+          <h3>开发者活动</h3>
+          <a href="#" class="more-link">更多 &gt;</a>
+        </div>
+
+        <div class="activities-container">
+          <!-- 活动筛选和搜索区域 -->
+          <div class="activities-filters">
+            <div class="filter-buttons">
+              <button class="filter-btn active">全部</button>
+              <button class="filter-btn">线上活动</button>
+              <button class="filter-btn">线下活动</button>
+              <button class="filter-btn">即将开始</button>
+            </div>
+            <div class="search-bar">
+              <input type="text" placeholder="搜索活动..." class="search-input" />
+              <button class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 活动列表 -->
+          <div class="activities-grid">
+            <!-- 活动卡片 1 -->
+            <div class="activity-card">
+              <div class="activity-image">
+                <img src="../assets/images/harmonyosImage/image5.webp" alt="鸿蒙领航者招募" class="activity-img" />
+              </div>
+              <div class="activity-info">
+                <h4 class="activity-title">鸿蒙领航者招募 | 加入领航者阵营，共享共建鸿蒙新生态</h4>
+                <div class="activity-date">09月 28日-12月 31日</div>
+              </div>
+            </div>
+
+            <!-- 活动卡片 2 -->
+            <div class="activity-card">
+              <div class="activity-image">
+                <img src="../assets/images/harmonyosImage/image6.webp" alt="鸿蒙问答挑战赛" class="activity-img" />
+              </div>
+              <div class="activity-info">
+                <h4 class="activity-title">领航者说-鸿蒙问答挑战赛 (第三期)</h4>
+                <div class="activity-date">11月 20日-01月 08日</div>
+              </div>
+            </div>
+
+            <!-- 活动卡片 3 -->
+            <div class="activity-card">
+              <div class="activity-image">
+                <img src="../assets/images/harmonyosImage/image7.webp" alt="技术关键词共建计划" class="activity-img" />
+              </div>
+              <div class="activity-info">
+                <h4 class="activity-title">【鸿蒙词海】技术关键词共建计划</h4>
+                <div class="activity-date">11月 10日-12月 07日</div>
+              </div>
+            </div>
+
+            <!-- 活动卡片 4 -->
+            <div class="activity-card">
+              <div class="activity-image">
+                <img src="../assets/images/harmonyosImage/image8.webp" alt="开发者偏好轻投票" class="activity-img" />
+              </div>
+              <div class="activity-info">
+                <h4 class="activity-title">【鸿蒙研选】开发者偏好轻投票</h4>
+                <div class="activity-date">11月 10日-12月 07日</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 分页控制 -->
+          <div class="pagination-container">
+            <div class="pagination-info">显示 1-4 项，共 12 项</div>
+            <div class="pagination-controls">
+              <button class="pagination-btn prev" disabled>上一页</button>
+              <button class="pagination-btn page active">1</button>
+              <button class="pagination-btn page">2</button>
+              <button class="pagination-btn page">3</button>
+              <button class="pagination-btn next">下一页</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 导航模块 -->
+        <div class="navigation-section">
+          <div class="navigation-grid">
+            <!-- 开发卡片 -->
+            <div class="nav-card development">
+              <div class="nav-header">
+                <div class="nav-icon">📚</div>
+                <h4 class="nav-title">开发</h4>
+              </div>
+              <div class="nav-links">
+                <a href="#" class="nav-link">开发文档</a>
+                <a href="#" class="nav-link">工具</a>
+                <a href="#" class="nav-link">API</a>
+                <a href="#" class="nav-link">示例代码</a>
+                <a href="#" class="nav-link">最佳实践</a>
+                <a href="#" class="nav-link">组件</a>
+              </div>
+            </div>
+
+            <!-- 支持卡片 -->
+            <div class="nav-card support">
+              <div class="nav-header">
+                <div class="nav-icon">💬</div>
+                <h4 class="nav-title">支持</h4>
+              </div>
+              <div class="nav-links">
+                <a href="#" class="nav-link">帮助指南</a>
+                <a href="#" class="nav-link">智能客服</a>
+              </div>
+            </div>
+
+            <!-- 探索卡片 -->
+            <div class="nav-card exploration">
+              <div class="nav-header">
+                <div class="nav-icon">🎓</div>
+                <h4 class="nav-title">探索</h4>
+              </div>
+              <div class="nav-links">
+                <a href="#" class="nav-link">鸿蒙应用</a>
+                <a href="#" class="nav-link">元服务</a>
+                <a href="#" class="nav-link">视频课程</a>
+                <a href="#" class="nav-link">Codelabs</a>
+                <a href="#" class="nav-link">游戏</a>
+              </div>
+            </div>
+
+            <!-- 设计卡片 -->
+            <div class="nav-card design">
+              <div class="nav-header">
+                <div class="nav-icon">🎨</div>
+                <h4 class="nav-title">设计</h4>
+              </div>
+              <div class="nav-links">
+                <a href="#" class="nav-link">设计指南</a>
+                <a href="#" class="nav-link">设计资源</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- 问题列表模块 -->
+    <section class="questions-list-section">
+      <div class="container">
+        <div class="q-nav-bar">
+          <div class="q-nav-tabs">
+            <a href="#articles" class="q-nav-link">文章</a>
+            <a href="#questions" class="q-nav-link active">问题</a>
+          </div>
+          <div class="q-sort-options">
+            <button class="q-sort-btn active">最新</button>
+            <button class="q-sort-btn">待回答</button>
+            <button class="q-sort-btn">阅读数</button>
+            <button class="q-sort-btn">得票数</button>
+          </div>
+          <div class="q-write-buttons">
+            <button class="q-write-btn article-btn">写文章</button>
+            <button class="q-write-btn question-btn">提问</button>
+          </div>
+        </div>
+
+        <div class="questions-container">
+          <ul class="question-list">
+            <!-- 问题项 1 -->
+            <li class="q-list-page p-0 list-group-item">
+              <div class="p-3 d-flex flex-column flex-md-row">
+                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                  <div class="num-card py-1 me-2">
+                    <span class="font-size-16">0</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">投票</span>
+                  </div>
+                  <div class="num-card py-1 me-2 num-card-answer">
+                    <span class="font-size-16 me-1 me-sm-0">1</span>
+                    <span class="font-size-14">回答</span>
+                  </div>
+                  <div class="num-card text-secondary py-1">
+                    <span class="font-size-16">242</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">阅读</span>
+                  </div>
+                </div>
+                <div class="w-100">
+                  <div class="d-flex align-items-start" style="margin-bottom:12px">
+                    <h3 class="q-item-title mb-0 h6">
+                      <a href="#" class="text-body" target="">如何给自定义组件添加文档注释？</a>
+                    </h3>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                    <div class="d-flex flex-wrap align-items-center me-3">
+                      <div class="m-n1 d-flex flex-wrap align-items-center">
+                        <a href="#" class="m-1 badge-tag">harmonyos</a>
+                        <a href="#" class="m-1 badge-tag">harmonyos-next</a>
+                      </div>
+                    </div>
+                    <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                      <a href="#" class="user-link">Tedd</a>
+                      <span class="split-dot"></span>
+                      <a href="#" class="time-link">11月28日回答</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 问题项 2 -->
+            <li class="q-list-page p-0 list-group-item">
+              <div class="p-3 d-flex flex-column flex-md-row">
+                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                  <div class="num-card py-1 me-2">
+                    <span class="font-size-16">0</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">投票</span>
+                  </div>
+                  <div class="num-card py-1 me-2 num-card-answer solved">
+                    <span class="font-size-16 me-1 me-sm-0">1</span>
+                    <span class="font-size-14">解决</span>
+                  </div>
+                  <div class="num-card text-secondary py-1">
+                    <span class="font-size-16">186</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">阅读</span>
+                  </div>
+                </div>
+                <div class="w-100">
+                  <div class="d-flex align-items-start" style="margin-bottom:12px">
+                    <h3 class="q-item-title mb-0 h6">
+                      <a href="#" class="text-body" target="">`.transition`动画是否会影响`zIndex`的变化？</a>
+                    </h3>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                    <div class="d-flex flex-wrap align-items-center me-3">
+                      <div class="m-n1 d-flex flex-wrap align-items-center">
+                        <a href="#" class="m-1 badge-tag">harmonyos</a>
+                        <a href="#" class="m-1 badge-tag">harmonyos-next</a>
+                      </div>
+                    </div>
+                    <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                      <a href="#" class="user-link">Sheldon</a>
+                      <span class="split-dot"></span>
+                      <a href="#" class="time-link">11月28日回答</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 问题项 3 -->
+            <li class="q-list-page p-0 list-group-item">
+              <div class="p-3 d-flex flex-column flex-md-row">
+                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                  <div class="num-card py-1 me-2">
+                    <span class="font-size-16">0</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">投票</span>
+                  </div>
+                  <div class="num-card py-1 me-2 num-card-answer">
+                    <span class="font-size-16 me-1 me-sm-0">1</span>
+                    <span class="font-size-14">回答</span>
+                  </div>
+                  <div class="num-card text-secondary py-1">
+                    <span class="font-size-16">219</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">阅读</span>
+                  </div>
+                </div>
+                <div class="w-100">
+                  <div class="d-flex align-items-start" style="margin-bottom:12px">
+                    <h3 class="q-item-title mb-0 h6">
+                      <a href="#" class="text-body" target="">是否可以动态地添加或移除装饰器？</a>
+                    </h3>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                    <div class="d-flex flex-wrap align-items-center me-3">
+                      <div class="m-n1 d-flex flex-wrap align-items-center">
+                        <a href="#" class="m-1 badge-tag">harmonyos</a>
+                        <a href="#" class="m-1 badge-tag">harmonyos-next</a>
+                      </div>
+                    </div>
+                    <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                      <a href="#" class="user-link">皮拉帕</a>
+                      <span class="split-dot"></span>
+                      <a href="#" class="time-link">11月28日回答</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 问题项 4 -->
+            <li class="q-list-page p-0 list-group-item">
+              <div class="p-3 d-flex flex-column flex-md-row">
+                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                  <div class="num-card py-1 me-2">
+                    <span class="font-size-16">0</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">投票</span>
+                  </div>
+                  <div class="num-card py-1 me-2 num-card-answer">
+                    <span class="font-size-16 me-1 me-sm-0">1</span>
+                    <span class="font-size-14">回答</span>
+                  </div>
+                  <div class="num-card text-secondary py-1">
+                    <span class="font-size-16">198</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">阅读</span>
+                  </div>
+                </div>
+                <div class="w-100">
+                  <div class="d-flex align-items-start" style="margin-bottom:12px">
+                    <h3 class="q-item-title mb-0 h6">
+                      <a href="#" class="text-body" target="">`Location`对象中的`speed`和`direction`属性的单位是什么？</a>
+                    </h3>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                    <div class="d-flex flex-wrap align-items-center me-3">
+                      <div class="m-n1 d-flex flex-wrap align-items-center">
+                        <a href="#" class="m-1 badge-tag">harmonyos</a>
+                        <a href="#" class="m-1 badge-tag">harmonyos-next</a>
+                      </div>
+                    </div>
+                    <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                      <a href="#" class="user-link">唐敖</a>
+                      <span class="split-dot"></span>
+                      <a href="#" class="time-link">11月28日回答</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- 问题项 5 -->
+            <li class="q-list-page p-0 list-group-item">
+              <div class="p-3 d-flex flex-column flex-md-row">
+                <div class="d-flex flex-sm-shrink-1 mb-2 mb-md-0 me-3">
+                  <div class="num-card py-1 me-2">
+                    <span class="font-size-16">0</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">投票</span>
+                  </div>
+                  <div class="num-card py-1 me-2 num-card-answer solved">
+                    <span class="font-size-16 me-1 me-sm-0">1</span>
+                    <span class="font-size-14">解决</span>
+                  </div>
+                  <div class="num-card text-secondary py-1">
+                    <span class="font-size-16">223</span>
+                    <span class="d-block d-sm-none" style="width:4px"></span>
+                    <span class="font-size-14">阅读</span>
+                  </div>
+                </div>
+                <div class="w-100">
+                  <div class="d-flex align-items-start" style="margin-bottom:12px">
+                    <h3 class="q-item-title mb-0 h6">
+                      <a href="#" class="text-body" target="">如何在自定义组件中处理手势事件，比如拖动？</a>
+                    </h3>
+                  </div>
+                  <div class="d-flex align-items-center flex-wrap" style="grid-gap:0.5rem">
+                    <div class="d-flex flex-wrap align-items-center me-3">
+                      <div class="m-n1 d-flex flex-wrap align-items-center">
+                        <a href="#" class="m-1 badge-tag">harmonyos</a>
+                        <a href="#" class="m-1 badge-tag">harmonyos-next</a>
+                      </div>
+                    </div>
+                    <div class="font-size-14 d-flex align-items-center justify-content-end flex-fill">
+                      <a href="#" class="user-link">唐敖</a>
+                      <span class="split-dot"></span>
+                      <a href="#" class="time-link">11月28日回答</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <!-- 分页控件 -->
+          <div class="d-flex justify-content-center mt-4">
+            <div class="pagination-container">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="prev">上一页</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn active" href="#" data-type="number">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="number">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="number">3</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="number">4</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="number">5</a>
+                </li>
+                <li class="page-item">
+                  <span class="page-link pagination-ellipsis">...</span>
+                </li>
+                <li class="page-item">
+                  <a class="page-link pagination-btn" href="#" data-type="next">下一页</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 公司产品和服务信息模块 -->
+    <section class="company-info-section">
+      <div class="container">
+        <div class="company-info-grid">
+          <!-- 思否旗下产品 -->
+          <div class="info-column">
+            <h3 class="info-column-title">思否旗下产品</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">SegmentFault</a></li>
+              <li><a href="#" class="info-link">思否企业服务</a></li>
+              <li><a href="#" class="info-link">思否公开课</a></li>
+              <li><a href="#" class="info-link">思否企业问答</a></li>
+            </ul>
+          </div>
+
+          <!-- ONES旗下产品 -->
+          <div class="info-column">
+            <h3 class="info-column-title">ONES旗下产品</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">ONES</a></li>
+              <li><a href="#" class="info-link">Tower</a></li>
+              <li><a href="#" class="info-link">为知笔记</a></li>
+              <li><a href="#" class="info-link">企业问答</a></li>
+              <li><a href="#" class="info-link">ONES.com</a></li>
+              <li><a href="#" class="info-link">项目管理百科</a></li>
+            </ul>
+          </div>
+
+          <!-- 资源 -->
+          <div class="info-column">
+            <h3 class="info-column-title">资源</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">每周精选</a></li>
+              <li><a href="#" class="info-link">用户排行榜</a></li>
+              <li><a href="#" class="info-link">帮助中心</a></li>
+              <li><a href="#" class="info-link">建议反馈</a></li>
+              <li><a href="#" class="info-link">声望</a></li>
+              <li><a href="#" class="info-link">勋章</a></li>
+            </ul>
+          </div>
+
+          <!-- 合作 -->
+          <div class="info-column">
+            <h3 class="info-column-title">合作</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">关于我们</a></li>
+              <li><a href="#" class="info-link">广告投放</a></li>
+              <li><a href="#" class="info-link">联系我们</a></li>
+              <li><a href="#" class="info-link">合作伙伴</a></li>
+            </ul>
+          </div>
+
+          <!-- 关注 -->
+          <div class="info-column">
+            <h3 class="info-column-title">关注</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">产品技术日志</a></li>
+              <li><a href="#" class="info-link">社区运营日志</a></li>
+              <li><a href="#" class="info-link">市场运营日志</a></li>
+              <li><a href="#" class="info-link">社区访谈</a></li>
+            </ul>
+          </div>
+
+          <!-- 条款 -->
+          <div class="info-column">
+            <h3 class="info-column-title">条款</h3>
+            <ul class="info-link-list">
+              <li><a href="#" class="info-link">服务协议</a></li>
+              <li><a href="#" class="info-link">隐私政策</a></li>
+              <li><a href="#" class="info-link">下载 App</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 社交媒体和版权信息 -->
+        <div class="footer-bottom">
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span class="social-icon">👉</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-icon">🌟</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="social-icon">📱</span>
+            </a>
+            <a href="#" class="social-link close-social">
+              <span class="social-icon">힩</span>
+            </a>
+          </div>
+
+          <div class="copyright-info">
+            <p class="copyright-text">Copyright © 2011-2025 SegmentFault. 当前呈现版本 25.11.10</p>
+            <p class="copyright-text">浙ICP备15005796号-2 浙公网安备33010602002000号 ICP经营许可 浙B2-20201554</p>
+            <p class="copyright-text">杭州堆栈科技有限公司版权所有</p>
+            <p class="company-slogan">思否 - 凝聚集体智慧，推动技术进步</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </template>
+
+  <style>
+    .activity-image {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* 公司产品和服务信息模块样式 */
+    .company-info-section {
+      background-color: #fff;
+      padding: 40px 0;
+      border-top: 1px solid #e9ecef;
+      margin-top: 40px;
+    }
+
+    .company-info-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .info-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-column-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 16px;
+      margin-top: 0;
+    }
+
+    .info-link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-link-list li {
+      margin-bottom: 8px;
+    }
+
+    .info-link {
+      color: #6c757d;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .info-link:hover {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #e9ecef;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .social-link {
+      text-decoration: none;
+      font-size: 18px;
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .close-social {
+      cursor: pointer;
+    }
+
+    .copyright-info {
+      text-align: right;
+    }
+
+    .copyright-text {
+      font-size: 12px;
+      color: #6c757d;
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+
+    .company-slogan {
+      font-size: 14px;
+      color: #6c757d;
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 1024px) {
+      .company-info-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .company-info-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .copyright-info {
+        text-align: center;
+      }
+
+      .company-slogan {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .company-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .company-info-section {
+        padding: 30px 0;
+        margin-top: 30px;
+      }
+
+      .info-column-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .info-link {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .company-info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .info-column {
+        margin-bottom: 10px;
+      }
+
+      .social-link {
+        font-size: 16px;
+      }
+
+      .copyright-text {
+        font-size: 11px;
+      }
+
+      .company-slogan {
+        font-size: 12px;
+      }
+    }
+
+    /* 问题列表模块样式 */
+    .questions-list-section {
+      background-color: #fff;
+      padding: 20px 0;
+    }
+
+    .q-nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .q-nav-tabs {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 10px;
+    }
+
+    .q-nav-link {
+      color: #6c757d;
+      text-decoration: none;
+      padding: 5px 0;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .q-nav-link.active {
+      color: #28a745;
+      border-bottom: 2px solid #28a745;
+    }
+
+    .q-nav-link:hover {
+      color: #28a745;
+    }
+
+    .q-sort-options {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .q-sort-btn {
+      background: none;
+      border: none;
+      color: #6c757d;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 4px;
+    }
+
+    .q-sort-btn:hover,
+    .q-sort-btn.active {
+      color: #28a745;
+      background-color: #f8fff9;
+    }
+
+    .q-write-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .q-write-btn {
+      padding: 6px 16px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+    }
+
+    .article-btn {
+      background-color: #fff;
+      color: #6c757d;
+      border-color: #dee2e6;
+    }
+
+    .article-btn:hover {
+      background-color: #f8f9fa;
+      border-color: #adb5bd;
+    }
+
+    .question-btn {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .question-btn:hover {
+      background-color: #218838;
+    }
+
+    .question-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .q-list-page {
+      border: 1px solid #e9ecef;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      transition: box-shadow 0.2s;
+    }
+
+    .q-list-page:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .num-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .num-card-answer {
+      color: #17a2b8;
+    }
+
+    .num-card-answer.solved {
+      color: #28a745;
+    }
+
+    .font-size-16 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .font-size-14 {
+      font-size: 14px;
+    }
+
+    .q-item-title h6 {
+      margin: 0;
+    }
+
+    .q-item-title a {
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .q-item-title a:hover {
+      color: #28a745 !important;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background-color: #f8f9fa;
+      color: #6c757d;
+      border-radius: 3px;
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .badge-tag:hover {
+      background-color: #e9ecef;
+      color: #495057;
+    }
+
+    .user-link,
+    .time-link {
+      color: #6c757d;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .user-link:hover,
+    .time-link:hover {
+      color: #28a745;
+    }
+
+    .split-dot {
+      margin: 0 5px;
+      color: #adb5bd;
+    }
+
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .page-item {
+      margin: 0 2px;
+    }
+
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #6c757d;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 14px;
+    }
+
+    .page-link:hover {
+      color: #28a745;
+      border-color: #28a745;
+    }
+
+    .page-link.active {
+      background-color: #28a745;
+      color: #fff;
+      border-color: #28a745;
+    }
+
+    .page-link:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+
+    .pagination-ellipsis {
+      min-width: 36px;
+      height: 36px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .q-nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .q-nav-tabs {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-bottom: 0;
+      }
+
+      .q-sort-options {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 5px;
+        margin-bottom: 0;
+      }
+
+      .q-write-buttons {
+        width: 100%;
+        justify-content: flex-end;
+      }
+
+      .q-list-page .d-flex {
+        flex-direction: column;
+      }
+
+      .q-list-page .me-3 {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+      }
+
+      .num-card {
+        min-width: 35px;
+      }
+
+      .d-flex.flex-wrap {
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+
+      .font-size-14.d-flex {
+        justify-content: flex-start !important;
+        margin-top: 10px;
+      }
+
+      .pagination {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .page-item {
+        margin: 2px;
+      }
+
+      .page-link {
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        font-size: 13px;
+      }
+
+      .pagination-ellipsis {
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .questions-list-section {
+        padding: 15px 0;
+      }
+
+      .q-write-btn {
+        padding: 5px 12px;
+        font-size: 13px;
+      }
+
+      .q-list-page {
+        margin-bottom: 8px;
+      }
+
+      .q-list-page .p-3 {
+        padding: 15px !important;
+      }
+
+      .q-item-title h6 {
+        font-size: 15px;
+      }
+
+      .badge-tag {
+        padding: 1px 6px;
+        font-size: 12px;
+      }
+
+      .font-size-16 {
+        font-size: 14px;
+      }
+
+      .font-size-14 {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .q-nav-tabs {
+        gap: 10px;
+      }
+
+      .q-nav-link {
+        font-size: 14px;
+      }
+
+      .q-sort-btn {
+        padding: 4px 8px;
+        font-size: 13px;
+      }
+
+      .q-write-buttons {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .q-write-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .pagination {
+        gap: 4px;
+      }
+
+      .page-link {
+        min-width: 30px;
+        height: 30px;
+        padding: 0 6px;
+        font-size: 12px;
+      }
+    }
+  </style>
+
+  <script src="../assets/js/header-loader.js"></script>
+  <script>
+    // 开发者活动模块功能实现
+    document.addEventListener('DOMContentLoaded', function () {
+      // 公司信息模块交互逻辑
+      const closeSocialButton = document.querySelector('.close-social');
+      if (closeSocialButton) {
+        closeSocialButton.addEventListener('click', function (e) {
+          e.preventDefault();
+          const socialLinksContainer = this.closest('.social-links');
+          if (socialLinksContainer) {
+            socialLinksContainer.style.display = 'none';
+          }
+        });
+      }
+
+      // 为信息链接添加悬停效果
+      const infoLinks = document.querySelectorAll('.info-link');
+      infoLinks.forEach(link => {
+        link.addEventListener('mouseenter', function () {
+          this.style.textDecoration = 'underline';
+        });
+        link.addEventListener('mouseleave', function () {
+          this.style.textDecoration = 'none';
+        });
+      });
+
+      // 活动数据（模拟数据）
+      const activitiesData = [
+        {
+          id: 1,
+          title: '鸿蒙领航者招募 | 加入领航者阵营，共享共建鸿蒙新生态',
+          date: '09月 28日-12月 31日',
+          image: '../assets/images/harmonyosImage/image5.webp',
+          type: '线上活动'
+        },
+        {
+          id: 2,
+          title: '领航者说-鸿蒙问答挑战赛 (第三期)',
+          date: '11月 20日-01月 08日',
+          image: '../assets/images/harmonyosImage/image6.webp',
+          type: '线上活动'
+        },
+        {
+          id: 3,
+          title: '【鸿蒙词海】技术关键词共建计划',
+          date: '11月 10日-12月 07日',
+          image: '../assets/images/harmonyosImage/image7.webp',
+          type: '线上活动'
+        },
+        {
+          id: 4,
+          title: '【鸿蒙研选】开发者偏好轻投票',
+          date: '11月 10日-12月 07日',
+          image: '../assets/images/harmonyosImage/image8.webp',
+          type: '线上活动'
+        },
+        {
+          id: 5,
+          title: '线下开发者沙龙 - 南京站',
+          date: '12月 15日',
+          image: '../assets/images/harmonyosImage/image5.webp',
+          type: '线下活动'
+        },
+        {
+          id: 6,
+          title: '鸿蒙生态合作伙伴大会',
+          date: '01月 18日-01月 19日',
+          image: '../assets/images/harmonyosImage/image6.webp',
+          type: '线下活动'
+        }
+      ];
+
+      // 筛选按钮功能
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const activityCards = document.querySelectorAll('.activity-card');
+      const searchInput = document.querySelector('.search-input');
+      const searchBtn = document.querySelector('.search-btn');
+
+      // 筛选按钮点击事件
+      filterButtons.forEach(button => {
+        // 添加按钮按下效果
+        button.addEventListener('mousedown', function () {
+          if (!button.disabled) {
+            this.classList.add('pressed');
+          }
+        });
+
+        button.addEventListener('mouseup', function () {
+          if (!button.disabled) {
+            this.classList.remove('pressed');
+          }
+        });
+
+        button.addEventListener('mouseleave', function () {
+          if (!button.disabled) {
+            this.classList.remove('pressed');
+          }
+        });
+
+        button.addEventListener('click', function () {
+          // 如果正在加载，则不执行任何操作
+          if (isLoading) {
+            return;
+          }
+
+          // 添加点击动画效果
+          this.style.transform = 'scale(0.98)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 100);
+
+          // 移除所有按钮的active类
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // 为当前按钮添加active类
+          this.classList.add('active');
+
+          const filterType = this.textContent.trim();
+          filterActivities(filterType, searchInput.value.trim());
+        });
+      });
+
+      // 搜索功能
+      searchBtn.addEventListener('click', function () {
+        const searchTerm = searchInput.value.trim();
+        const currentFilter = document.querySelector('.filter-btn.active').textContent.trim();
+        filterActivities(currentFilter, searchTerm);
+      });
+
+      // 回车键搜索
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          const searchTerm = this.value.trim();
+          const currentFilter = document.querySelector('.filter-btn.active').textContent.trim();
+          filterActivities(currentFilter, searchTerm);
+        }
+      });
+
+      // 全局变量
+      let currentPage = 1;
+      const itemsPerPage = 4;
+      let filteredData = [...activitiesData];
+      let isLoading = false;
+
+      // 活动网格容器
+      const activitiesGrid = document.querySelector('.activities-grid');
+      const paginationInfo = document.querySelector('.pagination-info');
+
+      // 创建加载指示器
+      const loadingIndicator = document.createElement('div');
+      loadingIndicator.className = 'loading-indicator';
+      loadingIndicator.innerHTML = '<div class="spinner"></div><p>加载中...</p>';
+      loadingIndicator.style.display = 'none';
+      activitiesGrid.parentNode.insertBefore(loadingIndicator, activitiesGrid.nextSibling);
+
+      // 创建无结果提示
+      const noResultsMessage = document.createElement('div');
+      noResultsMessage.className = 'no-results';
+      noResultsMessage.innerHTML = '<p>暂无符合条件的活动</p>';
+      noResultsMessage.style.display = 'none';
+      activitiesGrid.parentNode.insertBefore(noResultsMessage, loadingIndicator);
+
+      // 初始化页面
+      initPage();
+
+      function initPage() {
+        // 清空静态卡片
+        activitiesGrid.innerHTML = '';
+        // 初始加载数据
+        renderActivities(currentPage);
+        // 初始化分页
+        initPagination();
+      }
+
+      // 渲染活动列表
+      function renderActivities(page) {
+        // 显示加载状态
+        showLoading(true);
+
+        // 模拟网络请求延迟
+        setTimeout(() => {
+          // 清空活动网格
+          activitiesGrid.innerHTML = '';
+
+          // 检查是否有结果
+          if (filteredData.length === 0) {
+            showNoResults(true);
+            showLoading(false);
+            updatePaginationInfo(page);
+            return;
+          }
+
+          showNoResults(false);
+
+          // 计算起始和结束索引
+          const startIndex = (page - 1) * itemsPerPage;
+          const endIndex = startIndex + itemsPerPage;
+          const paginatedActivities = filteredData.slice(startIndex, endIndex);
+
+          // 动态生成活动卡片
+          paginatedActivities.forEach(activity => {
+            const activityCard = document.createElement('div');
+            activityCard.className = 'activity-card';
+            activityCard.innerHTML = `
+              <div class="activity-image">
+                <img src="${activity.image}" alt="${activity.title}" class="activity-img" />
+              </div>
+              <div class="activity-info">
+                <h4 class="activity-title">${activity.title}</h4>
+                <div class="activity-date">${activity.date}</div>
+              </div>
+            `;
+
+            // 添加点击事件
+            activityCard.addEventListener('click', function () {
+              console.log(`查看活动详情: ${activity.title}`);
+              alert(`即将查看活动详情: ${activity.title}`);
+            });
+
+            // 添加淡入动画
+            activityCard.style.opacity = '0';
+            activityCard.style.transform = 'translateY(10px)';
+            activityCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+            activitiesGrid.appendChild(activityCard);
+
+            // 触发动画
+            setTimeout(() => {
+              activityCard.style.opacity = '1';
+              activityCard.style.transform = 'translateY(0)';
+            }, 50);
+          });
+
+          // 更新分页信息
+          updatePaginationInfo(page);
+
+          // 隐藏加载状态
+          showLoading(false);
+        }, 500); // 500ms延迟模拟加载
+      }
+
+      // 显示/隐藏加载指示器
+      function showLoading(show) {
+        isLoading = show;
+        loadingIndicator.style.display = show ? 'flex' : 'none';
+
+        // 禁用/启用所有交互按钮
+        const allButtons = document.querySelectorAll('.filter-btn, .search-btn, .pagination-btn');
+        allButtons.forEach(btn => {
+          if (show) {
+            btn.setAttribute('disabled', 'disabled');
+            btn.classList.add('disabled');
+          } else {
+            btn.removeAttribute('disabled');
+            btn.classList.remove('disabled');
+          }
+        });
+      }
+
+      // 显示/隐藏无结果提示
+      function showNoResults(show) {
+        noResultsMessage.style.display = show ? 'block' : 'none';
+        activitiesGrid.style.display = show ? 'none' : 'grid';
+      }
+
+      // 初始化分页控件
+      function initPagination() {
+        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        const paginationControls = document.querySelector('.pagination-controls');
+
+        // 清空现有的页码按钮（保留上一页/下一页按钮）
+        // 先移除所有页码按钮（不是上一页/下一页的按钮）
+        const pageButtons = paginationControls.querySelectorAll('.pagination-btn:not(.prev):not(.next)');
+        pageButtons.forEach(btn => btn.remove());
+
+        // 生成页码按钮
+        for (let i = 1; i <= totalPages; i++) {
+          const pageBtn = document.createElement('button');
+          pageBtn.className = `pagination-btn page ${i === currentPage ? 'active' : ''}`;
+          pageBtn.textContent = i;
+
+          // 插入到下一页按钮之前
+          paginationControls.insertBefore(pageBtn, nextBtn);
+
+          // 添加点击事件
+          pageBtn.addEventListener('click', function () {
+            currentPage = i;
+            renderActivities(currentPage);
+            updatePaginationButtons(currentPage, totalPages);
+
+            // 更新所有页码按钮的active状态
+            paginationControls.querySelectorAll('.pagination-btn.page').forEach(btn => {
+              btn.classList.remove('active');
+            });
+            this.classList.add('active');
+          });
+        }
+
+        // 更新上一页/下一页按钮状态
+        updatePaginationButtons(currentPage, totalPages);
+      }
+
+      // 更新分页信息
+      function updatePaginationInfo(page) {
+        const totalItems = filteredData.length;
+        const startItem = page > 0 ? (page - 1) * itemsPerPage + 1 : 0;
+        const endItem = Math.min(page * itemsPerPage, totalItems);
+        paginationInfo.textContent = `显示 ${startItem}-${endItem} 项，共 ${totalItems} 项`;
+      }
+
+      // 更新分页按钮状态
+      function updatePaginationButtons(page, totalPages) {
+        prevBtn.disabled = page === 1;
+        nextBtn.disabled = page === totalPages || totalPages === 0;
+      }
+
+      // 活动筛选函数
+      function filterActivities(filterType, searchTerm) {
+        // 根据筛选类型过滤
+        let results = activitiesData;
+
+        if (filterType !== '全部') {
+          results = results.filter(activity =>
+            activity.type === filterType
+          );
+        }
+
+        // 根据搜索词过滤
+        if (searchTerm) {
+          const term = searchTerm.toLowerCase();
+          results = results.filter(activity =>
+            activity.title.toLowerCase().includes(term) ||
+            activity.date.includes(term)
+          );
+        }
+
+        // 更新过滤后的数据
+        filteredData = results;
+
+        // 重置到第一页并重新渲染
+        currentPage = 1;
+        renderActivities(currentPage);
+        initPagination();
+
+        console.log(`筛选类型: ${filterType}, 搜索词: ${searchTerm}, 结果数量: ${filteredData.length}`);
+      }
+
+      // 分页功能
+      const prevBtn = document.querySelector('.pagination-btn.prev');
+      const nextBtn = document.querySelector('.pagination-btn.next');
+
+      // 上一页按钮点击事件
+      prevBtn.addEventListener('click', function () {
+        if (!this.disabled && currentPage > 1) {
+          currentPage--;
+          renderActivities(currentPage);
+          const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+          updatePaginationButtons(currentPage, totalPages);
+        }
+      });
+
+      // 下一页按钮点击事件
+      nextBtn.addEventListener('click', function () {
+        const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+        if (!this.disabled && currentPage < totalPages) {
+          currentPage++;
+          renderActivities(currentPage);
+          updatePaginationButtons(currentPage, totalPages);
+        }
+      });
+
+      prevBtn.addEventListener('click', function () {
+        if (!this.disabled) {
+          const currentActive = document.querySelector('.pagination-btn.page.active');
+          const prevPage = Array.from(paginationBtns).indexOf(currentActive) - 1;
+          if (prevPage >= 0) {
+            paginationBtns[prevPage].click();
+          }
+        }
+      });
+
+      nextBtn.addEventListener('click', function () {
+        if (!this.disabled) {
+          const currentActive = document.querySelector('.pagination-btn.page.active');
+          const nextPage = Array.from(paginationBtns).indexOf(currentActive) + 1;
+          if (nextPage < paginationBtns.length) {
+            paginationBtns[nextPage].click();
+          }
+        }
+      });
+
+      // 活动卡片点击事件（查看详情）
+      activityCards.forEach(card => {
+        card.addEventListener('click', function () {
+          const activityTitle = this.querySelector('.activity-title').textContent;
+          console.log(`查看活动详情: ${activityTitle}`);
+          // 这里可以实现跳转到活动详情页或显示活动详情弹窗
+          alert(`即将查看活动详情: ${activityTitle}`);
+        });
+      });
+    });
+
+    // 问题列表模块交互逻辑
+    document.addEventListener('DOMContentLoaded', function () {
+      // 导航标签切换
+      const navLinks = document.querySelectorAll('.q-nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          // 移除所有活动状态
+          navLinks.forEach(l => l.classList.remove('active'));
+          // 添加当前活动状态
+          this.classList.add('active');
+        });
+      });
+
+      // 排序按钮交互
+      const sortButtons = document.querySelectorAll('.q-sort-btn');
+      sortButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          // 移除所有活动状态
+          sortButtons.forEach(btn => btn.classList.remove('active'));
+          // 添加当前活动状态
+          this.classList.add('active');
+
+          // 模拟排序动画效果
+          simulateSorting();
+        });
+      });
+
+      // 分页按钮交互
+      const paginationBtns = document.querySelectorAll('.pagination-btn');
+      paginationBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const type = this.getAttribute('data-type');
+
+          if (type === 'number') {
+            // 页码按钮点击
+            const pageNum = parseInt(this.textContent);
+            updateActivePage(pageNum);
+          } else if (type === 'prev') {
+            // 上一页按钮点击
+            const currentActive = document.querySelector('.pagination-btn.active');
+            if (currentActive) {
+              const currentPage = parseInt(currentActive.textContent);
+              if (currentPage > 1) {
+                updateActivePage(currentPage - 1);
+              }
+            }
+          } else if (type === 'next') {
+            // 下一页按钮点击
+            const currentActive = document.querySelector('.pagination-btn.active');
+            if (currentActive) {
+              const currentPage = parseInt(currentActive.textContent);
+              // 检查是否有下一页（这里假设最大页码为10）
+              if (currentPage < 10) {
+                updateActivePage(currentPage + 1);
+              }
+            }
+          }
+
+          // 加载页面数据
+          loadPageData();
+        });
+      });
+
+      // 更新活动页码
+      function updateActivePage(pageNum) {
+        // 移除所有活动状态
+        document.querySelectorAll('.pagination-btn').forEach(btn => {
+          if (btn.getAttribute('data-type') === 'number') {
+            btn.classList.remove('active');
+          }
+        });
+
+        // 添加当前页码活动状态
+        const pageButtons = document.querySelectorAll('.pagination-btn[data-type="number"]');
+        pageButtons.forEach(btn => {
+          if (parseInt(btn.textContent) === pageNum) {
+            btn.classList.add('active');
+          }
+        });
+
+        // 更新上一页/下一页按钮状态
+        const prevBtn = document.querySelector('.pagination-btn[data-type="prev"]');
+        const nextBtn = document.querySelector('.pagination-btn[data-type="next"]');
+
+        if (prevBtn) {
+          if (pageNum === 1) {
+            prevBtn.setAttribute('disabled', 'disabled');
+          } else {
+            prevBtn.removeAttribute('disabled');
+          }
+        }
+
+        if (nextBtn) {
+          if (pageNum >= 10) { // 假设最大页码为10
+            nextBtn.setAttribute('disabled', 'disabled');
+          } else {
+            nextBtn.removeAttribute('disabled');
+          }
+        }
+      }
+
+      // 模拟排序动画效果
+      function simulateSorting() {
+        const questionList = document.querySelector('.question-list');
+        if (questionList) {
+          // 添加动画类
+          questionList.style.opacity = '0.7';
+          questionList.style.transition = 'opacity 0.3s';
+
+          // 短暂延迟后恢复
+          setTimeout(() => {
+            questionList.style.opacity = '1';
+          }, 300);
+        }
+      }
+
+      // 加载页面数据
+      function loadPageData() {
+        const questionsContainer = document.querySelector('.questions-container');
+        if (questionsContainer) {
+          // 添加加载指示器
+          const loader = document.createElement('div');
+          loader.className = 'loading-indicator';
+          loader.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 10px 20px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-radius: 4px;
+                    z-index: 1000;
+                `;
+          loader.textContent = '加载中...';
+
+          questionsContainer.style.position = 'relative';
+          questionsContainer.appendChild(loader);
+
+          // 模拟加载延迟
+          setTimeout(() => {
+            // 移除加载指示器
+            questionsContainer.removeChild(loader);
+
+            // 更新分页UI
+            updatePaginationUI();
+          }, 500);
+        }
+      }
+
+      // 更新分页UI
+      function updatePaginationUI() {
+        // 这里可以添加滚动到顶部的逻辑
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // 移动端滚动定位优化
+        if (window.innerWidth < 768) {
+          const questionsSection = document.querySelector('.questions-list-section');
+          if (questionsSection) {
+            questionsSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
