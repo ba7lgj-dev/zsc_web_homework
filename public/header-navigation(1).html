@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SegmentFault 思否</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 绿色横线 -->
+    <div class="green-line"></div>
+
+    <!-- 主导航栏 -->
+    <header class="main-header">
+        <div class="header-container">
+            <!-- 左侧：Logo和导航菜单 -->
+            <div class="left-section">
+                <!-- Logo -->
+                <a class="logo" href="#">
+                    <img src="images/logo-b.1ef53c6e.svg" alt="SegmentFault">
+                </a>
+
+                <!-- 导航菜单 -->
+                <div class="nav-menu">
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" id="product-dropdown-toggle">
+                            产品
+                            <span class="dropdown-arrow"></span>
+                        </a>
+                        <div class="dropdown-menu" id="product-dropdown">
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">SegmentFault</div>
+                                <div class="dropdown-item-sub">专业开发者技术问答社区</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否企业问答</div>
+                                <div class="dropdown-item-sub">面向企业的商业问答软件</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否企业服务</div>
+                                <div class="dropdown-item-sub">营销与广告投放、开发者活动</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">思否公开课</div>
+                                <div class="dropdown-item-sub">编程课程、技术公开课</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">ONES</div>
+                                <div class="dropdown-item-sub">企业级研发管理平台</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">Tower</div>
+                                <div class="dropdown-item-sub">团队协作工具</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">为知笔记</div>
+                                <div class="dropdown-item-sub">个人及团队的知识库</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#" id="community-dropdown-toggle">
+                            社群
+                            <span class="dropdown-arrow"></span>
+                        </a>
+                        <div class="dropdown-menu" id="community-dropdown">
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">Discord</div>
+                                <div class="dropdown-item-sub">开发者在线聊天室</div>
+                            </div>
+                            <div class="dropdown-item-group">
+                                <div class="dropdown-item-main">微信群</div>
+                                <div class="dropdown-item-sub">公众号"联系我们"拉进群</div>
+                                <div class="qr-code">
+                                    <img src="images/qr-code-common.fff548d0.png" alt="微信群二维码">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中间：搜索框 -->
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="搜索关键字" aria-label="搜索" id="search-input">
+                    <div class="search-icon"></div>
+                    <!-- 搜索下拉菜单 -->
+                    <div class="search-dropdown" id="search-dropdown">
+                        <div class="search-option" data-search-type="bing" data-url="https://www.bing.com/search?q=site:segmentfault.com+">
+                            <span class="search-option-text">使用"Bing"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="google" data-url="https://www.google.com/search?q=site:segmentfault.com+">
+                            <span class="search-option-text">使用"Google"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="baidu" data-url="https://www.baidu.com/s?wd=site:segmentfault.com+">
+                            <span class="search-option-text">使用"百度"搜本站</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                        <div class="search-option" data-search-type="internal" data-url="#internal-search">
+                            <span class="search-option-text">站内搜索</span>
+                            <span class="search-option-check">✓</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：注册登录按钮 -->
+            <div class="auth-buttons">
+                <a href="#" class="btn-login">注册登录</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <div class="main-wrapper">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <!-- 主要导航项 -->
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-fw fa-circle-question me-2"></i>
+                    问答
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-blog fa-fw me-2"></i>
+                    博客
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-newspaper fa-fw me-2"></i>
+                    咨询
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-tags fa-fw me-2"></i>
+                    标签
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-users fa-fw me-2"></i>
+                    用户
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-calendar-days fa-fw me-2"></i>
+                    活动
+                </a>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 社区板块 -->
+            <div class="sidebar-section">
+                <div class="sidebar-subtitle">
+                    <img src="images/1591470715-67498d9667680_tiny24.webp" alt="极客观点" style="width: 16px; height: 16px; margin-right: 8px;">
+                    极客观点
+                </div>
+                <div class="sidebar-subtitle">
+                    <img src="images/2978758509-67498f579c239_tiny24.webp" alt="项目管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    项目管理
+                </div>
+                <div class="sidebar-subtitle">
+                    <img src="images/icon-brand-harmonyos.f1e421bb.png" alt="HarmonyOS开发者社区" style="width: 16px; height: 16px; margin-right: 8px;">
+                    HarmonyOS开发者社区
+                </div>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 热门标签 -->
+            <div class="sidebar-section">
+                <div class="sidebar-title" id="hot-tags-toggle" style="cursor: pointer;" onclick="toggleHotTags()">
+                    热门标签
+                    <i class="fas fa-caret-down float-end" style="color: #00a859;" id="tags-arrow"></i>
+                </div>
+                <div class="hot-tags-content" id="hot-tags-content" style="display: none;">
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        javascript
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        前端
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        python
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        node.js
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        react
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        vue.js
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        php
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        laravel
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        go
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        人工智能
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        mysql
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        linux
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        ios
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        java
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        android
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        CSS
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        typescript
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        spring
+                    </a>
+                    <a href="#" class="sidebar-item">
+                        <i class="fas fa-tags fa-fw me-2"></i>
+                        程序员
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 分隔线 -->
+            <hr class="sidebar-divider">
+            
+            <!-- 产品服务 -->
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item">
+                    <img src="images/logo-ones.2e4d7b04.svg" alt="ONES研发管理" style="width: 16px; height: 16px; margin-right: 8px;">
+                    ONES研发管理
+                </a>
+                <a href="#" class="sidebar-item">
+                    <img src="images/logo-answer.b0220a1c.svg" alt="思否企业问答" style="width: 16px; height: 16px; margin-right: 8px;">
+                    思否企业问答
+                </a>
+            </div>
+        </aside>
+
+        <!-- 主内容 -->
+        <main class="main-content">
+            <!-- 标签页面头部 -->
+            <div class="tags-header">
+                <h4>标签</h4>
+                <p>标签不仅能组织和归类你的内容，还能关联相似的内容。正确的使用标签将让你的内容被更多人发现和解决。</p>
+            </div>
+            
+            <!-- 标签搜索和筛选 -->
+            <div class="tags-controls">
+                <div class="tags-search">
+                    <input type="text" class="search-input" placeholder="搜索标签">
+                </div>
+                <div class="tags-filter">
+                    <button class="filter-btn active" data-filter="popular">热门</button>
+                    <button class="filter-btn" data-filter="alphabetical">首字母</button>
+                    <button class="filter-btn" data-filter="latest">最新</button>
+                </div>
+            </div>
+            
+            <!-- 标签列表 -->
+            <!-- 第一页标签 -->
+            <div class="tags-page" id="page-1">
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>javascript</span></a>
+                    <p class="tag-description">JavaScript 是一门弱类型的动态脚本语言，支持多种编程范式，包括面向对象和函数式编程，被广泛用于 Web...</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">1.2k 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>python</span></a>
+                    <p class="tag-description">Python是一种解释型、高级和通用的编程语言，语法简洁清晰</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">856 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>react</span></a>
+                    <p class="tag-description">React是用于构建用户界面的JavaScript库，由Facebook开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">642 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>node.js</span></a>
+                    <p class="tag-description">Node.js是基于Chrome V8引擎的JavaScript运行时环境</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">523 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>css</span></a>
+                    <p class="tag-description">层叠样式表（英语：Cascading Style Sheets，简写CSS），又称串样式列表，由W3C定义和维护的标准，一种...</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">445 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>html</span></a>
+                    <p class="tag-description">HTML是用于创建网页的标准标记语言</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">389 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>vue</span></a>
+                    <p class="tag-description">Vue.js是用于构建用户界面的渐进式JavaScript框架</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">312 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>java</span></a>
+                    <p class="tag-description">Java是一种广泛使用的面向对象的编程语言</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">298 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>typescript</span></a>
+                    <p class="tag-description">TypeScript是JavaScript的超集，添加了静态类型检查</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">276 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>angular</span></a>
+                    <p class="tag-description">Angular是用于构建移动和桌面Web应用的平台</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">234 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>docker</span></a>
+                    <p class="tag-description">Docker是一个开源的容器化平台，用于开发、部署和运行应用</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">198 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>git</span></a>
+                    <p class="tag-description">Git是分布式版本控制系统，用于跟踪代码变化</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">187 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>前端</span></a>
+                    <p class="tag-description">前端开发是创建Web应用用户界面的技术领域，包括HTML、CSS、JavaScript等技术</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">1.5k 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>php</span></a>
+                    <p class="tag-description">PHP是一种广泛使用的服务器端脚本语言，特别适合Web开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">892 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>vue.js</span></a>
+                    <p class="tag-description">Vue.js是用于构建用户界面的渐进式JavaScript框架，易学易用</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">423 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>html5</span></a>
+                    <p class="tag-description">HTML5是HTML的最新标准，提供了更多语义化标签和多媒体支持</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">356 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>mysql</span></a>
+                    <p class="tag-description">MySQL是最流行的开源关系型数据库管理系统之一</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">678 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>linux</span></a>
+                    <p class="tag-description">Linux是开源的操作系统内核，广泛用于服务器和嵌入式设备</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">534 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>webpack</span></a>
+                    <p class="tag-description">Webpack是现代JavaScript应用程序的静态模块打包工具</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">289 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>jquery</span></a>
+                    <p class="tag-description">jQuery是快速、简洁的JavaScript库，简化HTML文档操作和事件处理</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">267 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>程序员</span></a>
+                    <p class="tag-description">程序员是从事软件开发的专业人员，涉及编程、设计、测试等工作</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">445 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>android</span></a>
+                    <p class="tag-description">Android是基于Linux内核的开源移动操作系统，由Google主导开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">589 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>css3</span></a>
+                    <p class="tag-description">CSS3是CSS的最新版本，提供了动画、过渡、变换等丰富的视觉效果</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">334 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>ios</span></a>
+                    <p class="tag-description">iOS是Apple开发的移动操作系统，用于iPhone、iPad等设备</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">412 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>ecmascript-6</span></a>
+                    <p class="tag-description">ECMAScript 6是JavaScript语言的重要标准更新，引入了许多新特性</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">278 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>nginx</span></a>
+                    <p class="tag-description">Nginx是高性能的Web服务器和反向代理服务器</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">356 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>go</span></a>
+                    <p class="tag-description">Go是Google开发的编程语言，简洁高效，适合并发编程</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">223 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>typescript</span></a>
+                    <p class="tag-description">TypeScript是JavaScript的超集，添加了静态类型检查</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">276 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>后端</span></a>
+                    <p class="tag-description">后端开发涉及服务器端逻辑、数据库管理、API设计等技术</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">789 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>harmonyos-next</span></a>
+                    <p class="tag-description">HarmonyOS Next是华为推出的全场景操作系统，支持多设备协同</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">156 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>面试</span></a>
+                    <p class="tag-description">面试相关技术问题、算法题、编程题等求职准备内容</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">923 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>c++</span></a>
+                    <p class="tag-description">C++是支持多范式的编程语言，广泛用于系统软件和游戏开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">567 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>laravel</span></a>
+                    <p class="tag-description">Laravel是基于PHP的Web应用框架，提供优雅的语法和丰富的功能</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">234 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>c</span></a>
+                    <p class="tag-description">C语言是通用的编程语言，是许多现代编程语言的基础</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">445 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>github</span></a>
+                    <p class="tag-description">GitHub是全球最大的代码托管平台，支持版本控制和协作开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">378 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>angularjs</span></a>
+                    <p class="tag-description">AngularJS是Google开发的前端JavaScript框架，用于构建单页应用</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">189 问题</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二页标签 -->
+            <div class="tags-page" id="page-2">
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>redis</span></a>
+                    <p class="tag-description">Redis是开源的内存数据结构存储系统，可用作数据库、缓存和消息代理</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">412 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>harmonyos</span></a>
+                    <p class="tag-description">HarmonyOS是华为开发的分布式操作系统，支持多种设备形态</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">178 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>spring</span></a>
+                    <p class="tag-description">Spring是Java平台的应用程序框架，提供全面的基础架构支持</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">567 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>web</span></a>
+                    <p class="tag-description">Web开发涉及网站和Web应用的设计、开发和维护</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">892 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>chrome</span></a>
+                    <p class="tag-description">Chrome是Google开发的Web浏览器，支持丰富的扩展和开发者工具</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">234 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>正则表达式</span></a>
+                    <p class="tag-description">正则表达式是用于匹配字符串模式的强大工具，广泛应用于文本处理</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">156 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>算法</span></a>
+                    <p class="tag-description">算法是解决特定问题的一系列明确指令，是编程的核心基础</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">1.2k 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>http</span></a>
+                    <p class="tag-description">HTTP是用于传输超媒体文档的应用层协议，是Web的基础</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">345 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>数据库</span></a>
+                    <p class="tag-description">数据库是组织、存储和管理数据的系统，包括关系型和NoSQL数据库</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">678 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>vue-router</span></a>
+                    <p class="tag-description">Vue Router是Vue.js的官方路由管理器，用于构建单页应用</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">189 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>springboot</span></a>
+                    <p class="tag-description">Spring Boot是基于Spring的快速应用开发框架，简化了配置和部署</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">423 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>docker</span></a>
+                    <p class="tag-description">Docker是一个开源的容器化平台，用于开发、部署和运行应用</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">289 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>ajax</span></a>
+                    <p class="tag-description">AJAX是无需重新加载页面即可更新网页内容的技术，提升用户体验</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">267 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>sql</span></a>
+                    <p class="tag-description">SQL是用于管理关系数据库的标准语言，支持数据查询和操作</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">534 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>element-ui</span></a>
+                    <p class="tag-description">Element UI是基于Vue.js的桌面端组件库，提供丰富的UI组件</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">198 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>vuex</span></a>
+                    <p class="tag-description">Vuex是Vue.js的状态管理模式和库，专为Vue.js应用程序设计</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">223 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>vue-cli</span></a>
+                    <p class="tag-description">Vue CLI是Vue.js的官方开发工具，提供项目脚手架和构建工具</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">156 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>mongodb</span></a>
+                    <p class="tag-description">MongoDB是基于文档的NoSQL数据库，支持灵活的数据模型</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">312 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>object-c</span></a>
+                    <p class="tag-description">Objective-C是面向对象的编程语言，主要用于macOS和iOS开发</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">234 问题</span>
+                    </div>
+                </div>
+                <div class="tag-item">
+                    <a href="#" class="tag-name"><span>npm</span></a>
+                    <p class="tag-description">npm是Node.js的包管理器，用于安装和管理JavaScript依赖包</p>
+                    <div class="tag-actions">
+                        <button class="follow-btn">关注标签</button>
+                        <span class="tag-count">278 问题</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 翻页导航 -->
+            <div class="pagination">
+                <ul class="pagination-list">
+                    <li class="pagination-item active">
+                        <span class="pagination-link">1</span>
+                    </li>
+                    <li class="pagination-item">
+                        <span class="pagination-link">2</span>
+                    </li>
+                    <li class="pagination-item">
+                        <span class="pagination-link">3</span>
+                    </li>
+                    <li class="pagination-item">
+                        <span class="pagination-link">4</span>
+                    </li>
+                    <li class="pagination-item">
+                        <span class="pagination-link">5</span>
+                    </li>
+                    <li class="pagination-item">
+                        <span class="pagination-link">下一页</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 页面底部 -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <!-- 上半部分：链接区域 -->
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 class="footer-title">思否旗下产品</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">SegmentFault</a></li>
+                                <li><a href="#" class="footer-link">思否企业服务</a></li>
+                                <li><a href="#" class="footer-link">思否公开课</a></li>
+                                <li><a href="#" class="footer-link">思否企业问答</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-title">ONES 旗下产品</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">ONES</a></li>
+                                <li><a href="#" class="footer-link">Tower</a></li>
+                                <li><a href="#" class="footer-link">为知笔记</a></li>
+                                <li><a href="#" class="footer-link">企业问答</a></li>
+                                <li><a href="#" class="footer-link">ONES.com</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-title">资源</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">每周精选</a></li>
+                                <li><a href="#" class="footer-link">用户排行榜</a></li>
+                                <li><a href="#" class="footer-link">帮助中心</a></li>
+                                <li><a href="#" class="footer-link">建议反馈</a></li>
+                                <li><a href="#" class="footer-link">声望</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-title">合作</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">关于我们</a></li>
+                                <li><a href="#" class="footer-link">广告投放</a></li>
+                                <li><a href="#" class="footer-link">联系我们</a></li>
+                                <li><a href="#" class="footer-link">合作伙伴</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-title">关注</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">产品技术日志</a></li>
+                                <li><a href="#" class="footer-link">社区运营日志</a></li>
+                                <li><a href="#" class="footer-link">市场运营日志</a></li>
+                                <li><a href="#" class="footer-link">社区访谈</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 class="footer-title">条款</h4>
+                            <ul class="footer-list">
+                                <li><a href="#" class="footer-link">服务协议</a></li>
+                                <li><a href="#" class="footer-link">隐私政策</a></li>
+                                <li><a href="#" class="footer-link">下载 App</a></li>
+                            </ul>
+                            
+                            <!-- 社交媒体图标 -->
+                            <div class="social-icons">
+                                <a href="#" class="social-icon wechat" title="微信">
+                                    <i class="fab fa-weixin"></i>
+                                </a>
+                                <a href="#" class="social-icon weibo" title="微博">
+                                    <i class="fab fa-weibo"></i>
+                                </a>
+                                <a href="#" class="social-icon github" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-icon twitter" title="推特">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 分隔线 -->
+                    <div class="footer-divider"></div>
+                    
+                    <!-- 下半部分：版权信息 -->
+                    <div class="footer-copyright">
+                        <div class="copyright-text">
+                            <p>Copyright © 2011-2025 SegmentFault. 当前呈现版本 25.11.10</p>
+                            <p>浙ICP备15005796号-2浙公网安备33010602002000号ICP 经营许可 浙B2-20201554</p>
+                            <p>杭州堆栈科技有限公司版权所有</p>
+                        </div>
+                        <div class="footer-brand">
+                            <a href="#" class="brand-link">思否 - 凝聚集体智慧，推动技术进步</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+        
+    </div>
+    
+
+    <!-- 注册登录模态框 -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-content">
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+                <h3 class="modal-title">注册登录</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <!-- 模态框主体 -->
+            <div class="modal-body">
+                <!-- 默认登录表单 -->
+                <div class="login-form-default" id="login-form-default">
+                    <div class="text-center">
+                        <h4 class="login-title">注册登录</h4>
+                    </div>
+                    
+                    <!-- 手机号输入 -->
+                    <div class="form-group">
+                        <label for="phone">手机号：</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="请输入手机号">
+                    </div>
+                    
+                    <!-- 验证码输入 -->
+                    <div class="form-group">
+                        <label for="verification-code">验证码：</label>
+                        <div class="verification-group">
+                            <input type="text" id="verification-code" class="form-input verification-input" placeholder="请输入验证码">
+                            <button class="get-code-btn" id="get-code-btn">获取验证码</button>
+                        </div>
+                        <div class="form-hint">
+                            <a href="#" class="hint-link">新手机号将自动注册</a>
+                        </div>
+                    </div>
+                    
+                    <!-- 登录按钮 -->
+                    <button class="login-btn" id="login-btn">登录</button>
+                    
+                    <!-- 登录方式切换 -->
+                    <div class="login-methods">
+                        <button type="button" data-mode="weixin" class="login-mode">微信登录</button>
+                        <button type="button" data-mode="no-password" class="login-mode active">免密码登录</button>
+                        <button type="button" data-mode="password" class="login-mode">密码登录</button>
+                    </div>
+                    
+                    <!-- 第三方登录图标 -->
+                    <div class="social-login">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google" title="Google登录">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon github" title="GitHub登录">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon weibo" title="新浪微博登录">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                            <a href="#" class="social-icon more" title="更多登录方式">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 服务协议 -->
+                    <div class="agreement">
+                        <span>继续即代表同意</span>
+                        <a href="#" class="agreement-link">《服务协议》</a>
+                        <span>和</span>
+                        <a href="#" class="agreement-link">《隐私政策》</a>
+                    </div>
+                </div>
+
+                <!-- 微信二维码登录表单 -->
+                <div class="login-form-weixin" id="login-form-weixin" style="display: none;">
+                    <div class="text-center">
+                        <h4 class="login-title">注册登录</h4>
+                    </div>
+                    
+                    <div class="weixin-login-container">
+                        <div class="qr-code-container">
+                            <div class="qr-code">
+                                <img src="images/011IvyIA3q2Q000m.jpg" alt="微信扫码登录" width="160" height="160">
+                            </div>
+                        </div>
+                        
+                        <div class="weixin-text">
+                            <i class="fab fa-weixin" style="color: rgb(0, 181, 0);"></i>
+                            微信扫码登录
+                        </div>
+                    </div>
+                    
+                    <!-- 登录方式切换 -->
+                    <div class="login-methods">
+                        <button type="button" data-mode="weixin" class="login-mode active">微信登录</button>
+                        <button type="button" data-mode="no-password" class="login-mode">免密码登录</button>
+                        <button type="button" data-mode="password" class="login-mode">密码登录</button>
+                    </div>
+                    
+                    <!-- 第三方登录图标 -->
+                    <div class="social-login">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon google" title="Google登录">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a href="#" class="social-icon github" title="GitHub登录">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon weibo" title="新浪微博登录">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                            <a href="#" class="social-icon more" title="更多登录方式">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 服务协议 -->
+                    <div class="agreement">
+                        <span>继续即代表同意</span>
+                        <a href="#" class="agreement-link">《服务协议》</a>
+                        <span>和</span>
+                        <a href="#" class="agreement-link">《隐私政策》</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
