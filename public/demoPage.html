@@ -10,6 +10,1112 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f8f9fa;
+            max-width: calc(100% - 250px);
+            margin: 0 auto;
+        }
+
+        .main-content .content {
+            max-width: 100%;
+            margin: 0;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+
+        /* 内容和右侧栏容器 */
+        .my-page>div[style*="display: flex"] {
+            align-items: flex-start;
+        }
+
+        .my-page {
+            background-color: #f5f6f7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+            padding: 0;
+            max-width: none;
+            min-width: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .answer-card {
+            border: 1px solid #e5e6eb;
+            border-radius: 6px;
+            background: #fff;
+            padding: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 回答标题栏 */
+        .answer-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e6eb;
+        }
+
+        .answer-count {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .answer-sort-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .sort-btn {
+            padding: 6px 16px;
+            border: 1px solid #e5e6eb;
+            background: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-btn:hover {
+            background: #f5f6f7;
+        }
+
+        .sort-btn.active {
+            background: #1e80ff;
+            color: #fff;
+            border-color: #1e80ff;
+        }
+
+        /* 回答头部信息 */
+        .answer-header {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            gap: 12px;
+        }
+
+        .answer-header .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .answer-header .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .answer-info {
+            flex: 1;
+        }
+
+        .answer-author {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .answer-author .level {
+            font-weight: 400;
+            color: #666;
+            font-size: 13px;
+            margin-left: 8px;
+        }
+
+        .answer-meta {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .answer-status {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #1f9e6d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .check-icon {
+            color: #1f9e6d;
+            font-weight: bold;
+        }
+
+        /* 回答内容 */
+        .answer-body {
+            padding: 20px;
+        }
+
+        .answer-body p {
+            color: #333;
+            line-height: 1.75;
+            font-size: 15px;
+            margin: 0 0 12px 0;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 14px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: Consolas, 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .code-block code {
+            font-family: Consolas, 'Courier New', monospace;
+        }
+
+        /* 推广链接 */
+        .promo-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #e6f4ff;
+            border-radius: 6px;
+            color: #1e80ff;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+
+        .promo-link:hover {
+            background: #d0e7ff;
+        }
+
+        .promo-icon {
+            font-size: 16px;
+        }
+
+        /* 回答操作按钮 */
+        .answer-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .answer-actions .btn {
+            padding: 6px 14px;
+            border: 1px solid #e5e6eb;
+            background: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .answer-actions .btn:hover {
+            background: #f5f6f7;
+            border-color: #d0d0d0;
+        }
+
+        .answer-actions .btn.useful {
+            border-color: #1f9e6d;
+            color: #1f9e6d;
+        }
+
+        .answer-actions .btn.useful:hover {
+            background: #e9f6ea;
+        }
+
+        .answer-footer-link {
+            margin-left: auto;
+            color: #999;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .answer-footer-link:hover {
+            color: #666;
+        }
+
+        .code-box {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 14px;
+            /* font-family: Consolas, monospace; */
+            margin: 10px 0;
+            /* white-space: pre-wrap; */
+            /* word-wrap: break-word; */
+            /* overflow-x: auto; */
+            max-width: 100%;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #eef8ff;
+            border-radius: 4px;
+            margin-right: 6px;
+            font-size: 12px;
+            color: #409eff;
+        }
+
+        .green-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border: 1px solid #a3d7a5;
+            background: #e9f6ea;
+            color: #298a32;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .rightbar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 80px;
+            align-self: flex-start;
+            height: fit-content;
+        }
+
+        .related-list .item {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .related-list .item-title {
+            font-size: 14px;
+            color: #333;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            margin-top: auto;
+            background: #fff;
+            padding: 40px 0;
+            border-top: 1px solid #e5e6eb;
+        }
+
+        .footer-columns {
+            display: flex;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            justify-content: space-between;
+        }
+
+        /* 响应式布局 */
+        @media (max-width: 1200px) {
+            .layout {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .my-page>div:first-of-type {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .rightbar {
+                width: 100%;
+                position: static;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .layout {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .rightbar {
+                width: 100%;
+                position: static;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .my-page>div:first-of-type {
+                flex-direction: column;
+                padding: 0 15px;
+            }
+        }
+
+        .footer-col {
+            line-height: 28px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .footer-col-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .content .card:last-child {
+            width: auto;
+        }
+
+        .content .card:first-child {
+            border: 1px solid #e5e6eb;
+            padding: 28px 32px;
+            border-radius: 6px;
+            background: #fff;
+            width: 100%;
+            /* 使用内容区的宽度，避免推开下方卡片 */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            box-sizing: border-box;
+        }
+
+        /* content 样式已在上面定义，此处删除重复定义 */
+        /* 标签区样式强化 */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            background: #f0f7ff;
+            border: 1px solid #d0e7ff;
+            color: #1e80ff;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-top: 8px;
+        }
+
+        /* 按钮区样式 */
+        .action-bar {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: #f6f6f6;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: #f6f6f6;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            background: #eee;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 有用按钮特殊样式 */
+        .action-btn.useful-active {
+            background: #e9f6ea;
+            border-color: #1f9e6d;
+            color: #1f9e6d;
+        }
+
+        .action-btn .count {
+            margin-left: 4px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* 关注按钮激活样式 */
+        .action-btn.follow-active {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        /* 收藏按钮激活样式 */
+        .action-btn.favorite-active {
+            background: #fdf2e9;
+            border-color: #ff7e4e;
+            color: #d4380d;
+        }
+
+        /* 分享弹窗样式 */
+        .share-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .share-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .share-content {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 320px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .share-modal.show .share-content {
+            transform: scale(1);
+        }
+
+        .share-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 8px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .share-option:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .share-option i {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .share-option[data-platform="wechat"] i {
+            color: #07C160;
+        }
+
+        .share-option[data-platform="weibo"] i {
+            color: #E6162D;
+        }
+
+        .share-option[data-platform="copy"] i {
+            color: #1E80FF;
+        }
+
+        .share-option[data-platform="qq"] i {
+            color: #12B7F5;
+        }
+
+        .share-option span {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .share-close {
+            width: 100%;
+            padding: 8px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .share-close:hover {
+            background: #e9ecef;
+        }
+
+        /* 提示框样式 */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 右侧栏补全 */
+        .rightbar .card {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .related-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        /* AI 参考答案卡片样式 */
+        .ai-reference-card {
+            background: #fff;
+            border: 1px solid #e5e6eb;
+            border-radius: 6px;
+            padding: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .ai-reference-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 20px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #e5e6eb;
+        }
+
+        .ai-logo {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .ai-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            flex: 1;
+        }
+
+        .ai-beta {
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .ai-reference-content {
+            padding: 20px;
+        }
+
+        .ai-summary {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+        }
+
+        .ai-more-btn {
+            display: inline-block;
+            padding: 8px 24px;
+            background: #1f9e6d;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .ai-more-btn:hover {
+            background: #1a8659;
+            box-shadow: 0 2px 8px rgba(31, 158, 109, 0.3);
+        }
+
+        .ai-more-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 模态框样式 */
+        .ai-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .ai-modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .ai-modal {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 1px solid #e5e6eb;
+            background: #fafafa;
+        }
+
+        .ai-modal-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .ai-modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .ai-modal-close:hover {
+            color: #999;
+        }
+
+        .ai-modal-content {
+            padding: 20px;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .ai-modal-content h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin: 16px 0 8px 0;
+        }
+
+        .ai-modal-content ol {
+            margin: 0 0 16px 0;
+            padding-left: 20px;
+        }
+
+        .ai-modal-content li {
+            margin-bottom: 8px;
+        }
+
+        .ai-modal-content ul {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+
+        .ai-modal-content ul li {
+            list-style: disc;
+        }
+
+        .ai-modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #e5e6eb;
+            background: #fafafa;
+            display: flex;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+
+        .ai-modal-footer button {
+            padding: 6px 14px;
+            border: 1px solid #e5e6eb;
+            background: #fff;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .ai-modal-footer button:hover {
+            background: #f5f6f7;
+        }
+
+        /* 推荐问题卡片样式 */
+        .recommended-questions-card {
+            background: #fff;
+            border: 1px solid #e5e6eb;
+            border-radius: 6px;
+            padding: 0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+            margin-top: 16px;
+            overflow: hidden;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .recommended-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e6eb;
+            background: #fafafa;
+        }
+
+        .recommended-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        .recommended-list {
+            padding: 0;
+        }
+
+        .recommended-item {
+            padding: 16px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .recommended-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #1f9e6d;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .recommended-item:hover::before {
+            opacity: 1;
+        }
+
+        .recommended-item:last-child {
+            border-bottom: none;
+        }
+
+        .recommended-item:hover {
+            background: #f9f9f9;
+            transform: translateX(4px);
+        }
+
+        .recommended-item:active {
+            background: #f5f5f5;
+            transform: translateX(2px);
+        }
+
+        .recommended-item-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+            line-height: 1.6;
+            margin: 0 0 8px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .recommended-item-meta {
+            margin-bottom: 8px;
+        }
+
+        .meta-text {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .recommended-item-stats {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .stat-item {
+            transition: all 0.2s;
+        }
+
+        .stat-divider {
+            color: #ddd;
+        }
+
+        .recommended-item:hover .stat-item {
+            color: #666;
+        }
+
+        /* 相似问题模块样式 */
+        .similar-questions-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .related-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .similar-questions-list {
+            margin-bottom: 16px;
+        }
+
+        .similar-question-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f8f9fa;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+
+        .similar-question-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .similar-question-item:hover {
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .question-link {
+            display: block;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #212529;
+            text-decoration: none;
+            margin-bottom: 6px;
+            transition: color 0.2s;
+        }
+
+        .question-link:hover {
+            color: #00965e;
+            text-decoration: underline;
+        }
+
+        .question-stats {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 4px;
+        }
+
+        .answer-count {
+            color: #00965e;
+        }
+
+        .read-count {
+            color: #6c757d;
+        }
+
+        .resolved-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 500;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-top: 4px;
+        }
+
+        .resolved-badge.resolved {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .create-question-section {
+            padding-top: 12px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .create-question-btn {
+            display: inline-block;
+            font-size: 14px;
+            color: #00965e;
+            text-decoration: none;
+            padding: 8px 12px;
+            border: 1px solid #00965e;
+            border-radius: 6px;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .create-question-btn:hover {
+            background-color: #00965e;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 150, 94, 0.3);
+        }
+
+        .create-question-btn i {
+            margin-right: 6px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,10 +1123,676 @@
     </div>
 
     <template data-page-fragment>
-        <section class="my-page">自定义内容</section>
+        <section class="my-page">
+            <div
+                style="display: flex; gap: 20px; max-width: 1280px; margin: 20px auto 0; width: 100%; padding: 0 20px; box-sizing: border-box; flex: 1;">
+                <div class="content">
+
+                    <div class="card">
+                        <div class="author-bar" style="display:flex;align-items:center;margin-bottom:16px;">
+                            <img src="../assets/images/icon-geek-views.webp"
+                                style="width:42px;height:42px;border-radius:50%;margin-right:12px;">
+                            <div>
+                                <div style="font-size:15px;font-weight:600;color:#222;">幸福的椰子</div>
+                                <div style="font-size:12px;color:#888;">发布于 · 5 月 28 日 北京 · 更新于 5 月 28 日</div>
+                            </div>
+                        </div>
+                        <h2 style="font-size:26px;font-weight:700;margin:0 0 12px;color:#1a1a1a;">组件没文字也不播报，我是不是必须加
+                            accessibilityText？</h2>
+                        <p style="color:#333;line-height:1.75;font-size:16px;">
+                            我在写一个自定义按钮，没有文字内容（就是一个图标），结果发现用屏幕朗选中它时完全没声音，也不知道是哪个控件。后来查文档发现有个
+                            accessibilityText，是不是只要没有文字内容的组件就一定要加这个属性？像下面这样？</p>
+
+                        <div class="code-box">
+                            Button()
+                            .accessibilityText("返回")
+                        </div>
+
+                        <div class="tag">harmonyos-next</div>
+                        <div class="tag">HarmonyOS NEXT</div>
+                        <div class="action-bar">
+                            <div id="useful-btn" class="action-btn" data-count="32">👍 有用 <span class="count">32</span>
+                            </div>
+                            <div id="follow-btn" class="action-btn">⭐ 关注</div>
+                            <div id="favorite-btn" class="action-btn">📁 收藏</div>
+                            <div id="share-btn" class="action-btn">🔗 分享</div>
+                        </div>
+
+                        <!-- 分享弹窗 -->
+                        <div id="share-modal" class="share-modal">
+                            <div class="share-content">
+                                <div class="share-title">分享到</div>
+                                <div class="share-options">
+                                    <button class="share-option" data-platform="wechat">
+                                        <i class="fab fa-weixin"></i>
+                                        <span>微信</span>
+                                    </button>
+                                    <button class="share-option" data-platform="weibo">
+                                        <i class="fab fa-weibo"></i>
+                                        <span>微博</span>
+                                    </button>
+                                    <button class="share-option" data-platform="copy">
+                                        <i class="fas fa-link"></i>
+                                        <span>复制链接</span>
+                                    </button>
+                                    <button class="share-option" data-platform="qq">
+                                        <i class="fab fa-qq"></i>
+                                        <span>QQ</span>
+                                    </button>
+                                </div>
+                                <button class="share-close">关闭</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card answer-card">
+                        <div class="answer-title-bar">
+                            <div class="answer-count">1个回答</div>
+                            <div class="answer-sort-btns">
+                                <button class="sort-btn active">得票</button>
+                                <button class="sort-btn">最新</button>
+                            </div>
+                        </div>
+
+                        <div class="answer-header">
+                            <div class="avatar">
+                                <img src="../assets/images/icon-geek-views.webp" alt="avatar">
+                            </div>
+                            <div class="answer-info">
+                                <div class="answer-author">从零开始学鸿蒙 <span class="level">2.1k · 1 · 2 · 62</span></div>
+                                <div class="answer-meta">发布于 5月30日 北京</div>
+                            </div>
+                            <div class="answer-status">
+                                <span class="check-icon">✓</span> 已被采纳
+                            </div>
+                        </div>
+
+                        <div class="answer-body">
+                            <p>您确实倒是理解得非常准确：只要组件没有可读文字（如 Text），就应使用 accessibilityText 手动补充信息。</p>
+                            <p>否则屏幕朗读则会跳过该组件或直接无播报，影响使用体验。</p>
+                            <p>推荐做法：</p>
+
+                            <div class="code-block">
+                                <pre><code>Image($r('app.media.backIcon'))
+    .accessibilityText("返回")</code></pre>
+                            </div>
+
+                            <a class="promo-link">
+                                <span class="promo-icon">💡</span>
+                                鸿蒙问答挑战限时启动，专属问答勋章等你来拿！
+                            </a>
+                        </div>
+
+                        <div class="answer-actions">
+                            <button class="btn useful">👍 有用</button>
+                            <button class="btn reply">💬 回复</button>
+                            <a class="answer-footer-link">举报</a>
+                        </div>
+                    </div>
+
+                    <!-- AI 参考答案模块 -->
+                    <div class="card ai-reference-card">
+                        <div class="ai-reference-header">
+                            <div class="ai-logo">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <circle cx="10" cy="10" r="8" fill="#1f9e6d" />
+                                    <text x="10" y="12" text-anchor="middle" fill="white" font-size="10"
+                                        font-weight="bold">AI</text>
+                                </svg>
+                            </div>
+                            <span class="ai-title">AI 参考答案</span>
+                            <span class="ai-beta">BETA</span>
+                        </div>
+                        <div class="ai-reference-content">
+                            <p class="ai-summary">根据问题内容，AI为您生成的参考答案，仅供参考。</p>
+                            <button class="ai-more-btn" id="aiMoreBtn">查看更多</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <b>撰写回答</b>
+                        <p>你尚未登录，登录后可以：</p>
+                        <ul>
+                            <li>✓ 和开发者交流问题的细节</li>
+                            <li>✓ 关注并接收问题和回答的更新提醒</li>
+                            <li>✓ 参与内容的编辑和改进</li>
+                        </ul>
+                    </div>
+
+                    <!-- 推荐问题模块 -->
+                    <div class="card recommended-questions-card">
+                        <div class="recommended-header">
+                            <h3 class="recommended-title">推荐问题</h3>
+                        </div>
+                        <div class="recommended-list">
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">做能在IOS和android运行的应用，有地围和socket要求，考虑地圈的话，移动端开发框架选哪个？
+                                </div>
+                                <div class="recommended-item-meta">
+                                    <span
+                                        class="meta-text">目前已故过android开发，现在要做一个带地圈和socket通信界面（某Fudp然tcp）的应用开发。要对Android手机样...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">3 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">628 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">如何评估对外API的请求频率和分贝大小？</div>
+                                <div class="recommended-item-meta">
+                                    <span
+                                        class="meta-text">开发的对外api时间量，如何评估请求的频率，以及分贝大小呢？问了组里的回事，他们说不清楚，比如分贝，让我100，...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">1 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">602 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">
+                                    flutter中，在OverlayEntry组件中使用LayoutBuilder，切换到其他页面时为什么会报错？</div>
+                                <div class="recommended-item-meta">
+                                    <span
+                                        class="meta-text">写了一个在其他面，页面上放置一个按钮，点击事件对打开一个使用OverlayEntry实现的弹提示，但是因为OverlayEntry里...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">0 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">588 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">audioplavers中如何边接受边播放mp3的音频流？</div>
+                                <div class="recommended-item-meta">
+                                    <span
+                                        class="meta-text">由于没的音频文件需要接口回调返回audioint8List（addStreamChunk方法），需要师接，便要求立即播放，所以拆这设置了一...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">0 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">548 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">flutter如何优化高度不滚动的滚动页面？</div>
+                                <div class="recommended-item-meta">
+                                    <span
+                                        class="meta-text">有一个权限配置页面，设计不下：其中页面1、2、3个不同的分组，分组下面有不同的效果（一行显示3个），分组数量...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">0 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">521 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">如何解决微信小程序开发工具 Mac 版 Stable 1.06.2504030 内存占用过高的问题？
+                                </div>
+                                <div class="recommended-item-meta">
+                                    <span class="meta-text">小程序开发工具 Mac 开发工具 Stable 1.06.2504030 内存占用吗？ 基础库 3.9.2</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">0 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">491 阅读</span>
+                                </div>
+                            </div>
+
+                            <div class="recommended-item">
+                                <div class="recommended-item-title">flutter如何监听路由变化？</div>
+                                <div class="recommended-item-meta">
+                                    <span class="meta-text">页面布局是左侧一个导航栏，右侧是页面展示区域，页面通过with
+                                        RouteAwareMixin页面与子didPush、didPopNext、...</span>
+                                </div>
+                                <div class="recommended-item-stats">
+                                    <span class="stat-item">0 回答</span>
+                                    <span class="stat-divider">·</span>
+                                    <span class="stat-item">464 阅读</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="rightbar">
+                    <div class="card similar-questions-card">
+                        <div class="related-title">相似问题</div>
+                        <div class="similar-questions-list">
+                            <!-- 问题1 -->
+                            <div class="similar-question-item">
+                                <a href="#" class="question-link">在HarmonyOS中，组件没设置id是不是就拿不到触摸信息?</a>
+                                <div class="question-stats">
+                                    <span class="answer-count">1 回答</span>
+                                    <span class="read-count">· 498 阅读</span>
+                                </div>
+                                <div class="resolved-badge resolved">已解决</div>
+                            </div>
+
+                            <!-- 问题2 -->
+                            <div class="similar-question-item">
+                                <a href="#" class="question-link">我用了 motionBlur 但没模糊效果，是不是动画没设置对?</a>
+                                <div class="question-stats">
+                                    <span class="answer-count">1 回答</span>
+                                    <span class="read-count">· 1.1k 阅读</span>
+                                </div>
+                                <div class="resolved-badge resolved">已解决</div>
+                            </div>
+
+                            <!-- 问题3 -->
+                            <div class="similar-question-item">
+                                <a href="#" class="question-link">鸿蒙开发中，Waterflow组件是不是可以完全替代Grid组件?</a>
+                                <div class="question-stats">
+                                    <span class="answer-count">2 回答</span>
+                                    <span class="read-count">· 887 阅读</span>
+                                </div>
+                                <div class="resolved-badge resolved">已解决</div>
+                            </div>
+
+                            <!-- 问题4 -->
+                            <div class="similar-question-item">
+                                <a href="#" class="question-link">鸿蒙开发中怎么才能制定赋值而不是必须挨个赋值、只留最后几个不赋...</a>
+                                <div class="question-stats">
+                                    <span class="answer-count">1 回答</span>
+                                    <span class="read-count">· 508 阅读</span>
+                                </div>
+                                <div class="resolved-badge"></div>
+                            </div>
+
+                            <!-- 问题5 -->
+                            <div class="similar-question-item">
+                                <a href="#" class="question-link">HarmonyOS @State 是不是不能修饰枚举?</a>
+                                <div class="question-stats">
+                                    <span class="answer-count">1 回答</span>
+                                    <span class="read-count">· 767 阅读</span>
+                                </div>
+                                <div class="resolved-badge"></div>
+                            </div>
+                        </div>
+
+                        <!-- 创建新问题按钮 -->
+                        <div class="create-question-section">
+                            <a href="#" class="create-question-btn" title="创建新问题">
+                                <i class="fas fa-plus-circle"></i> 找不到问题？创建新问题
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-columns">
+                    <div class="footer-col">
+                        <div class="footer-col-title">思否旗下产品</div>
+                        SegmentFault<br>思否企业版<br>思否大学<br>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">ONES 旗下产品</div>
+                        ONES<br>Tower<br>为知笔记<br>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">资源</div>
+                        每周精选<br>用户排行榜<br>帮助中心<br>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">合作</div>
+                        关于我们<br>广告投放<br>合作伙伴<br>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-col-title">关注</div>
+                        产品技术日志<br>社区运营日志<br>
+                    </div>
+                </div>
+            </div>
+        </section>
     </template>
 
+    <!-- AI 参考答案模态框 -->
+    <div class="ai-modal-overlay" id="aiModal">
+        <div class="ai-modal">
+            <div class="ai-modal-header">
+                <div class="ai-modal-title">
+                    <div class="ai-logo">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="8" fill="#1f9e6d" />
+                            <text x="10" y="12" text-anchor="middle" fill="white" font-size="10"
+                                font-weight="bold">AI</text>
+                        </svg>
+                    </div>
+                    AI 参考答案
+                </div>
+                <button class="ai-modal-close" id="aiModalClose">&times;</button>
+            </div>
+            <div class="ai-modal-content">
+                <p>在使用Harmony NEXT时，优化应用的启动速度和响应时间可以从以下几个方面入手：</p>
+                <ol>
+                    <li>
+                        <strong>减少应用启动时的资源加载：</strong>
+                        <ul>
+                            <li>精简应用初始化的资源加载，只加载必要的资源。</li>
+                            <li>延迟加载非核心资源，即在应用后根据用户操作动态加载。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>优化代码和算法：</strong>
+                        <ul>
+                            <li>对启动过程中的关键路径进行性能分析，找出瓶颈并进行优化。</li>
+                            <li>使用高效的算法和数据结构，减少不必要的计算。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>使用异步和并行处理：</strong>
+                        <ul>
+                            <li>将可以并行执行的任务放在后台线程或任务中执行，避免阻塞主线程。</li>
+                            <li>利用Harmony NEXT提供的多线程或异步程序模型，提高应用启动。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>减少I/O操作：</strong>
+                        <ul>
+                            <li>尽量减少启动过程中的磁盘读写操作，可以使用缓存等技术来减少I/O开销。</li>
+                            <li>如果需要读取从网络加载数据，考虑使用预加载或数据库缓存等技术来加速数据获取。</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>使用性能分析工具：</strong>
+                        <ul>
+                            <li>利用Harmony NEXT提供的性能分析工具，如Profile工具，来监控分析应用的启动速度和响应时间。</li>
+                            <li>根据分析结果，针对性地进行优化。</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p>通过以上方法，可以有效提升Harmony NEXT应用的启动速度和响应时间，提升用户体验。</p>
+            </div>
+            <div class="ai-modal-footer">
+                <button>👍 有帮助</button>
+                <button>👎 没帮助</button>
+            </div>
+        </div>
+    </div>
+
     <script src="../assets/js/header-loader.js"></script>
+    <script>
+        // AI 参考答案模态框交互 - 延迟执行以确保 DOM 已加载
+        function initAIModal() {
+            const aiMoreBtn = document.getElementById('aiMoreBtn');
+            const aiModal = document.getElementById('aiModal');
+            const aiModalClose = document.getElementById('aiModalClose');
+
+            // 检查元素是否存在
+            if (!aiMoreBtn || !aiModal || !aiModalClose) {
+                console.warn('AI Modal elements not found, retrying...');
+                setTimeout(initAIModal, 100);
+                return;
+            }
+
+            // 打开模态框
+            aiMoreBtn.addEventListener('click', function () {
+                aiModal.classList.add('show');
+            });
+
+            // 关闭模态框 - 点击关闭按钮
+            aiModalClose.addEventListener('click', function () {
+                aiModal.classList.remove('show');
+            });
+
+            // 关闭模态框 - 点击遮罩层
+            aiModal.addEventListener('click', function (e) {
+                if (e.target === aiModal) {
+                    aiModal.classList.remove('show');
+                }
+            });
+
+            // 防止模态框内容被点击时关闭
+            const aiModalContent = document.querySelector('.ai-modal');
+            if (aiModalContent) {
+                aiModalContent.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                });
+            }
+        }
+
+        // 推荐问题交互
+        function initRecommendedQuestions() {
+            const recommendedItems = document.querySelectorAll('.recommended-item');
+
+            recommendedItems.forEach((item, index) => {
+                item.addEventListener('click', function () {
+                    const title = this.querySelector('.recommended-item-title').textContent;
+                    console.log('点击推荐问题:', index + 1, title);
+
+                    // 添加点击反馈
+                    this.style.background = '#f0f0f0';
+                    setTimeout(() => {
+                        this.style.background = '';
+                    }, 200);
+
+                    // 这里可以添加跳转逻辑
+                    // window.location.href = `/question/${questionId}`;
+                });
+
+                // 悬停效果增强
+                item.addEventListener('mouseenter', function () {
+                    this.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
+                    this.style.marginLeft = '4px';
+                });
+
+                item.addEventListener('mouseleave', function () {
+                    this.style.boxShadow = '';
+                    this.style.marginLeft = '';
+                });
+            });
+        }
+
+        // 在 DOM 加载完成后初始化
+        function initAll() {
+            initAIModal();
+            initRecommendedQuestions();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAll);
+        } else {
+            setTimeout(initAll, 100);
+        }
+
+        // 按钮交互功能
+        function initButtonInteractions() {
+            // 获取DOM元素
+            const usefulBtn = document.getElementById('useful-btn');
+            const followBtn = document.getElementById('follow-btn');
+            const favoriteBtn = document.getElementById('favorite-btn');
+            const shareBtn = document.getElementById('share-btn');
+            const shareModal = document.getElementById('share-modal');
+            const shareCloseBtn = document.querySelector('.share-close');
+            const shareOptions = document.querySelectorAll('.share-option');
+
+            // 创建提示框元素
+            let toast = document.getElementById('toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'toast';
+                toast.className = 'toast';
+                document.body.appendChild(toast);
+            }
+
+            // 初始状态
+            let usefulCount = parseInt(usefulBtn?.dataset.count || 32);
+            let isUseful = false;
+            let isFollowing = false;
+            let isFavorited = false;
+
+            // 显示提示框
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+
+            // 有用按钮点击事件
+            if (usefulBtn) {
+                usefulBtn.addEventListener('click', function () {
+                    isUseful = !isUseful;
+
+                    if (isUseful) {
+                        usefulCount++;
+                        this.classList.add('useful-active');
+                        this.innerHTML = '👍 已有用 \u003cspan class="count"\u003e' + usefulCount + '\u003c/span\u003e';
+                        showToast('感谢您的认可！');
+                    } else {
+                        usefulCount--;
+                        this.classList.remove('useful-active');
+                        this.innerHTML = '👍 有用 \u003cspan class="count"\u003e' + usefulCount + '\u003c/span\u003e';
+                        showToast('已取消有用');
+                    }
+
+                    // 添加动画效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            }
+
+            // 关注按钮点击事件
+            if (followBtn) {
+                followBtn.addEventListener('click', function () {
+                    isFollowing = !isFollowing;
+
+                    if (isFollowing) {
+                        this.classList.add('follow-active');
+                        this.innerHTML = '⭐ 已关注';
+                        showToast('已关注该问题');
+                    } else {
+                        this.classList.remove('follow-active');
+                        this.innerHTML = '⭐ 关注';
+                        showToast('已取消关注');
+                    }
+
+                    // 添加动画效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            }
+
+            // 收藏按钮点击事件
+            if (favoriteBtn) {
+                favoriteBtn.addEventListener('click', function () {
+                    isFavorited = !isFavorited;
+
+                    if (isFavorited) {
+                        this.classList.add('favorite-active');
+                        this.innerHTML = '📁 已收藏';
+                        showToast('已收藏该问题');
+                    } else {
+                        this.classList.remove('favorite-active');
+                        this.innerHTML = '📁 收藏';
+                        showToast('已取消收藏');
+                    }
+
+                    // 添加动画效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            }
+
+            // 分享按钮点击事件
+            if (shareBtn && shareModal) {
+                shareBtn.addEventListener('click', function () {
+                    shareModal.classList.add('show');
+
+                    // 动画效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+
+                // 关闭分享弹窗
+                if (shareCloseBtn) {
+                    shareCloseBtn.addEventListener('click', function () {
+                        shareModal.classList.remove('show');
+                    });
+                }
+
+                // 点击弹窗外部关闭
+                shareModal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        this.classList.remove('show');
+                    }
+                });
+
+                // 分享选项点击事件
+                shareOptions.forEach(option => {
+                    option.addEventListener('click', function () {
+                        const platform = this.dataset.platform;
+                        let message = '';
+
+                        switch (platform) {
+                            case 'wechat':
+                                message = '微信分享功能正在开发中';
+                                break;
+                            case 'weibo':
+                                message = '微博分享功能正在开发中';
+                                break;
+                            case 'qq':
+                                message = 'QQ分享功能正在开发中';
+                                break;
+                            case 'copy':
+                                // 复制当前页面链接到剪贴板
+                                if (navigator.clipboard) {
+                                    navigator.clipboard.writeText(window.location.href).then(() => {
+                                        message = '链接已复制到剪贴板';
+                                        showToast(message);
+                                    }).catch(err => {
+                                        message = '复制失败，请手动复制';
+                                        showToast(message);
+                                    });
+                                } else {
+                                    showToast('浏览器不支持复制功能');
+                                }
+                                return;
+                        }
+
+                        showToast(message);
+                    });
+                });
+            }
+
+            // 为所有按钮添加鼠标悬停效果的增强
+            const allBtns = document.querySelectorAll('.action-btn');
+            allBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function () {
+                    this.style.transition = 'all 0.2s ease';
+                });
+
+                btn.addEventListener('mouseleave', function () {
+                    this.style.transition = 'all 0.2s ease';
+                });
+            });
+        }
+
+        // 添加到初始化函数中
+        function initAll() {
+            initAIModal();
+            initRecommendedQuestions();
+            initButtonInteractions();
+        }
+    </script>
 </body>
 
 </html>
